@@ -38,9 +38,9 @@ private fun Home(viewModel: HomeViewModel, navigateToCreate: () -> Unit) {
                 val formatter = LocalAgenturenDateFormatter.current
                 val date = item?.date
                 val formattedDate =
-                    if (date != null) formatter.formatMediumDateTime(date) else ""
+                    if (date != null) formatter.formatShortDate(date) else ""
                 val formattedTime =
-                    if (date != null) formatter.formatShortRelativeTime(date) else ""
+                    if (date != null) formatter.formatTime(date) else ""
 
                 Card(
                     modifier = Modifier.fillMaxWidth(),
