@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Agenturen</string>
+
+    <!-- login -->
+    <string name="login_email_label">Enter email</string>
+    <string name="login_password_label">Enter password</string>
+    <string name="login_button">Login</string>
+</resources>
