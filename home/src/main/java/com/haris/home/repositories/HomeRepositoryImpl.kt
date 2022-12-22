@@ -1,8 +1,8 @@
 package com.haris.home.repositories
 
 import androidx.paging.PagingSource
-import com.haris.home.TodoDao
-import com.haris.home.TodoEntity
+import com.haris.data.TodoDao
+import com.haris.data.TodoEntity
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -12,6 +12,6 @@ internal class HomeRepositoryImpl @Inject constructor(
 ) : HomeRepository {
 
     override fun getData(): PagingSource<Int, TodoEntity> {
-        return dao.getAll()
+        return dao.pagedListAll()
     }
 }

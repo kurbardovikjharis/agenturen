@@ -28,7 +28,10 @@ private fun Home(viewModel: HomeViewModel, navigateToCreate: () -> Unit) {
     }) {
         LazyColumn(modifier = Modifier.padding(it)) {
             items(list) { item ->
-                Text(text = item?.text ?: "")
+                Text(
+                    modifier = Modifier.padding(16.dp),
+                    text = item?.text ?: ""
+                )
             }
         }
     }

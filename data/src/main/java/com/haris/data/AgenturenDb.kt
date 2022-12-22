@@ -1,4 +1,4 @@
-package com.haris.home
+package com.haris.data
 
 import android.content.Context
 import android.os.Debug

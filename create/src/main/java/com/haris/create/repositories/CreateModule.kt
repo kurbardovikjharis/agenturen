@@ -1,4 +1,4 @@
-package com.haris.home.repositories
+package com.haris.create.repositories
 
 import com.haris.data.TodoDao
 import dagger.Module
@@ -8,10 +8,10 @@ import dagger.hilt.android.components.ViewModelComponent
 
 @InstallIn(ViewModelComponent::class)
 @Module
-internal object HomeModule {
+internal object CreateModule {
 
     @Provides
-    fun provideRepository(todoDao: com.haris.data.TodoDao): HomeRepository {
-        return HomeRepositoryImpl(todoDao)
+    fun provideRepository(dao: TodoDao): CreateRepository {
+        return CreateRepositoryImpl(dao = dao)
     }
 }
