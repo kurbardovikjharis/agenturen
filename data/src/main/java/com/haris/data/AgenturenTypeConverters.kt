@@ -1,6 +1,7 @@
 package com.haris.data
 
 import androidx.room.TypeConverter
+import androidx.room.TypeConverters
 import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
 
@@ -15,4 +16,20 @@ object AgenturenTypeConverters {
     @TypeConverter
     @JvmStatic
     fun fromOffsetDateTime(date: OffsetDateTime?): String? = date?.format(formatter)
+
+    @TypeConverters
+    @JvmStatic
+    fun fromType(type: Type): String {
+        return type.name
+    }
+
+    @TypeConverters
+    @JvmStatic
+    fun toType(value: String): Type {
+        return if (value == Type.Daily.name) {
+            Type.Daily
+        } else {
+            Type.Weekly
+        }
+    }
 }

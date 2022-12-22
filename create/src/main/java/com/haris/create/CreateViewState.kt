@@ -1,5 +1,6 @@
 package com.haris.create
 
+import com.haris.data.Type
 import javax.annotation.concurrent.Immutable
 
 @Immutable
@@ -15,8 +16,4 @@ internal data class CreateViewState(
     companion object {
         val Empty = CreateViewState()
     }
-}
-
-enum class Type {
-    Daily, Weekly
 }

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.haris.base.ObservableLoadingCounter
 import com.haris.base.collectStatus
+import com.haris.data.Type
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -48,7 +49,9 @@ internal class CreateViewModel @Inject constructor(
         viewModelScope.launch {
             addTodo(
                 AddTodo.Params(
-                    title.value, description.value
+                    title = title.value,
+                    description = description.value,
+                    type = type.value
                 )
             ).collectStatus(ObservableLoadingCounter())
         }

@@ -13,6 +13,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.haris.base.R
+import com.haris.data.Type
 
 @Composable
 fun Create(navigateUp: () -> Unit) {

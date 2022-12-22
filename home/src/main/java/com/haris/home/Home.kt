@@ -55,6 +55,7 @@ private fun Home(viewModel: HomeViewModel, navigateToCreate: () -> Unit) {
                         Text(text = item?.description ?: "")
                         Text(text = formattedTime)
                         Text(text = formattedDate)
+                        Text(text = item?.type?.name ?: "")
                     }
                 }
             }
