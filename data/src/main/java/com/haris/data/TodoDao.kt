@@ -12,4 +12,7 @@ abstract class TodoDao {
 
     @Insert
     abstract suspend fun insert(entity: TodoEntity): Long
+
+    @Query("DELETE FROM todo WHERE uid = :id")
+    abstract suspend fun delete(id: Long): Int
 }

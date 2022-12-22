@@ -27,7 +27,11 @@ private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
     ) {
         TextField(value = state.value, onValueChange = { viewModel.updateText(it) })
 
-        Button(onClick = { viewModel.save() }) {
+        Button(
+            onClick = {
+                viewModel.save()
+                navigateUp()
+            }) {
             Text(text = "save")
         }
     }

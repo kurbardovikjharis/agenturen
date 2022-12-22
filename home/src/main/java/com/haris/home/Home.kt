@@ -1,5 +1,6 @@
 package com.haris.home
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Scaffold
@@ -29,7 +30,11 @@ private fun Home(viewModel: HomeViewModel, navigateToCreate: () -> Unit) {
         LazyColumn(modifier = Modifier.padding(it)) {
             items(list) { item ->
                 Text(
-                    modifier = Modifier.padding(16.dp),
+                    modifier = Modifier
+                        .padding(16.dp)
+                        .clickable {
+                            viewModel.delete(item?.uid ?: 0L)
+                        },
                     text = item?.text ?: ""
                 )
             }

@@ -6,4 +6,6 @@ import com.haris.data.TodoEntity
 internal interface HomeRepository {
 
     fun getData(): PagingSource<Int, TodoEntity>
+
+    suspend fun deleteTodo(id: Long)
 }

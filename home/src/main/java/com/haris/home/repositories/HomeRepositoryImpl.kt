@@ -14,4 +14,8 @@ internal class HomeRepositoryImpl @Inject constructor(
     override fun getData(): PagingSource<Int, TodoEntity> {
         return dao.pagedListAll()
     }
+
+    override suspend fun deleteTodo(id: Long) {
+        dao.delete(id)
+    }
 }
