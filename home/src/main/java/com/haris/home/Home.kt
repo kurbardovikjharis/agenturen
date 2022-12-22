@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
+import com.haris.base.LocalAgenturenDateFormatter
 
 @Composable
 fun Home(navigateToCreate: () -> Unit) {
@@ -34,6 +35,13 @@ private fun Home(viewModel: HomeViewModel, navigateToCreate: () -> Unit) {
             contentPadding = PaddingValues(16.dp)
         ) {
             items(list) { item ->
+                val formatter = LocalAgenturenDateFormatter.current
+                val date = item?.date
+                val formattedDate =
+                    if (date != null) formatter.formatMediumDateTime(date) else ""
+                val formattedTime =
+                    if (date != null) formatter.formatShortRelativeTime(date) else ""
+
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     onClick = {
@@ -45,6 +53,8 @@ private fun Home(viewModel: HomeViewModel, navigateToCreate: () -> Unit) {
                     ) {
                         Text(text = item?.title ?: "")
                         Text(text = item?.description ?: "")
+                        Text(text = formattedTime)
+                        Text(text = formattedDate)
                     }
                 }
             }

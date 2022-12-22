@@ -5,6 +5,7 @@ import android.os.Debug
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,6 +13,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+@TypeConverters(AgenturenTypeConverters::class)
 @Database(entities = [TodoEntity::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun todoDao(): TodoDao
