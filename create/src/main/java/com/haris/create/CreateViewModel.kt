@@ -14,26 +14,43 @@ internal class CreateViewModel @Inject constructor(
     private val addTodo: AddTodo
 ) : ViewModel() {
 
-    private val text = MutableStateFlow("")
+    private val title = MutableStateFlow("")
+    private val description = MutableStateFlow("")
+    private val type = MutableStateFlow(Type.Daily)
 
-    val state: StateFlow<CreateViewState> = text.map { text ->
-        CreateViewState(
-            value = text,
-            isButtonEnabled = text.isEmpty()
+    val state: StateFlow<CreateViewState> =
+        combine(title, description, type) { title, description, type ->
+            CreateViewState(
+                title = title,
+                description = description,
+                type = type,
+                enabled = title.isNotEmpty() && description.isNotEmpty()
+            )
+        }.stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(),
+            initialValue = CreateViewState.Empty
         )
-    }.stateIn(
-        scope = viewModelScope,
-        started = SharingStarted.WhileSubscribed(),
-        initialValue = CreateViewState.Empty
-    )
 
-    fun updateText(value: String) {
-        text.value = value
+    fun updateTitle(value: String) {
+        title.value = value
+    }
+
+    fun updateDescription(value: String) {
+        description.value = value
+    }
+
+    fun updateType(value: Type) {
+        type.value = value
     }
 
     fun save() {
         viewModelScope.launch {
-            addTodo(text.value).collectStatus(ObservableLoadingCounter())
+            addTodo(
+                AddTodo.Params(
+                    title.value, description.value
+                )
+            ).collectStatus(ObservableLoadingCounter())
         }
     }
 }

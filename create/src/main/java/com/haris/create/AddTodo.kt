@@ -6,9 +6,14 @@ import javax.inject.Inject
 
 internal class AddTodo @Inject constructor(
     private val repository: CreateRepository
-) : Interactor<String>() {
+) : Interactor<AddTodo.Params>() {
 
-    override suspend fun doWork(params: String) {
-        repository.addTodo(params)
+    override suspend fun doWork(params: Params) {
+        repository.addTodo(title = params.title, description = params.description)
     }
+
+    data class Params(
+        val title: String,
+        val description: String
+    )
 }

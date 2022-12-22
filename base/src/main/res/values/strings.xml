@@ -5,4 +5,12 @@
     <string name="login_email_label">Enter email</string>
     <string name="login_password_label">Enter password</string>
     <string name="login_button">Login</string>
+
+    <!-- create -->
+    <string name="create_title_label">Enter title</string>
+    <string name="create_description_label">Enter description</string>
+    <string name="create_button">Create</string>
+
+    <string name="create_daily">Daily</string>
+    <string name="create_weekly">Weekly</string>
 </resources>

@@ -7,5 +7,6 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "todo")
 data class TodoEntity(
     @PrimaryKey val uid: Long,
-    @ColumnInfo(name = "text") val text: String?
+    @ColumnInfo(name = "title") val title: String?,
+    @ColumnInfo(name = "description") val description: String?
 )
