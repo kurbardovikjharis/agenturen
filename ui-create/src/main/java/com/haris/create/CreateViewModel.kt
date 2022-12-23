@@ -3,12 +3,14 @@ package com.haris.create
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.haris.base.combine
 import com.haris.data.entities.Type
 import com.haris.domain.ObservableLoadingCounter
 import com.haris.domain.collectStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import java.time.LocalDate
 import java.time.LocalTime
 import javax.inject.Inject
 
@@ -25,6 +27,7 @@ internal class CreateViewModel @Inject constructor(
     private val title = MutableStateFlow("")
     private val description = MutableStateFlow("")
     private val time = MutableStateFlow<LocalTime?>(null)
+    private val date = MutableStateFlow<LocalDate?>(null)
     private val type = MutableStateFlow(Type.Daily)
 
     init {
@@ -45,13 +48,15 @@ internal class CreateViewModel @Inject constructor(
             title,
             description,
             time,
+            date,
             type,
             isUpdate
-        ) { title, description, time, type, isUpdate ->
+        ) { title, description, time, date, type, isUpdate ->
             CreateViewState(
                 title = title,
                 description = description,
                 time = time,
+                date = date,
                 type = type,
                 isUpdate = isUpdate,
                 enabled = title.isNotEmpty()
@@ -78,6 +83,10 @@ internal class CreateViewModel @Inject constructor(
         time.value = value
     }
 
+    fun updateDate(value: LocalDate) {
+        date.value = value
+    }
+
     fun save() {
         viewModelScope.launch {
             addTodo(
@@ -86,6 +95,7 @@ internal class CreateViewModel @Inject constructor(
                     title = title.value,
                     description = description.value,
                     time = time.value,
+                    date = date.value,
                     type = type.value
                 )
             ).collectStatus(ObservableLoadingCounter())

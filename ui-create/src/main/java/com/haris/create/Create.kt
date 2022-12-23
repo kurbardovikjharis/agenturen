@@ -23,8 +23,10 @@ import com.haris.base.date.LocalAgenturenDateFormatter
 import com.haris.data.entities.Type
 import com.haris.ui.R
 import com.vanpra.composematerialdialogs.MaterialDialog
+import com.vanpra.composematerialdialogs.datetime.date.datepicker
 import com.vanpra.composematerialdialogs.datetime.time.timepicker
 import com.vanpra.composematerialdialogs.rememberMaterialDialogState
+import java.time.LocalDate
 import java.time.LocalTime
 
 @Composable
@@ -61,8 +63,13 @@ private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
                 )
             })
 
-        Time(state.time) {
-            viewModel.updateTime(it)
+        Row {
+            Time(state.time) {
+                viewModel.updateTime(it)
+            }
+            Date(state.date) {
+                viewModel.updateDate(it)
+            }
         }
 
         Row(
@@ -99,8 +106,7 @@ private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
 @Composable
 private fun Time(time: LocalTime?, onTimeSelected: (LocalTime) -> Unit) {
     val formatter = LocalAgenturenDateFormatter.current
-    val formattedTime =
-        if (time != null) formatter.formatShortTime(time) else "set time"
+    val formatted = if (time != null) formatter.formatShortTime(time) else "set time"
 
     val dialogState = rememberMaterialDialogState()
     MaterialDialog(
@@ -116,7 +122,30 @@ private fun Time(time: LocalTime?, onTimeSelected: (LocalTime) -> Unit) {
     }
 
     Button(onClick = { dialogState.show() }) {
-        Text(text = formattedTime)
+        Text(text = formatted)
+    }
+}
+
+@Composable
+private fun Date(date: LocalDate?, onDateSelected: (LocalDate) -> Unit) {
+    val formatter = LocalAgenturenDateFormatter.current
+    val formatted = if (date != null) formatter.formatMediumDate(date) else "set date"
+
+    val dialogState = rememberMaterialDialogState()
+    MaterialDialog(
+        dialogState = dialogState,
+        buttons = {
+            positiveButton("Ok")
+            negativeButton("Cancel")
+        }
+    ) {
+        datepicker { date ->
+            onDateSelected(date)
+        }
+    }
+
+    Button(onClick = { dialogState.show() }) {
+        Text(text = formatted)
     }
 }
 

@@ -39,7 +39,7 @@ private fun Home(viewModel: HomeViewModel, navigateToCreate: (Long?) -> Unit) {
                 val date = item?.date
                 val time = item?.time
                 val formattedDate =
-                    if (date != null) formatter.formatShortDate(date) else ""
+                    if (date != null) formatter.formatMediumDate(date) else ""
                 val formattedTime =
                     if (time != null) formatter.formatShortTime(time) else ""
 
@@ -63,8 +63,12 @@ private fun Home(viewModel: HomeViewModel, navigateToCreate: (Long?) -> Unit) {
                             if (item?.description?.isNotEmpty() == true) {
                                 Text(text = item.description)
                             }
-                            Text(text = formattedTime)
-                            Text(text = formattedDate)
+                            if (formattedTime.isNotEmpty()) {
+                                Text(text = formattedTime)
+                            }
+                            if (formattedDate.isNotEmpty()) {
+                                Text(text = formattedDate)
+                            }
                             if (item?.type?.name?.isNotEmpty() == true) {
                                 Text(text = item.type.name)
                             }

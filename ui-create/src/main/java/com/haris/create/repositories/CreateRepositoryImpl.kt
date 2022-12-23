@@ -4,6 +4,7 @@ import com.haris.alarm.AlarmManager
 import com.haris.data.daos.TodoDao
 import com.haris.data.entities.TodoEntity
 import com.haris.data.entities.Type
+import java.time.LocalDate
 import java.time.LocalTime
 import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
@@ -19,6 +20,7 @@ internal class CreateRepositoryImpl @Inject constructor(
         title: String,
         description: String,
         time: LocalTime?,
+        date: LocalDate?,
         type: Type
     ) {
         val finalId = if (id != -1L) id else System.currentTimeMillis()
@@ -28,7 +30,7 @@ internal class CreateRepositoryImpl @Inject constructor(
                 title = title,
                 description = description,
                 time = time,
-                date = OffsetDateTime.now(),
+                date = date,
                 type = type
             )
         )

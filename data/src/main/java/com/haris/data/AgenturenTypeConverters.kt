@@ -3,22 +3,22 @@ package com.haris.data
 import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 import com.haris.data.entities.Type
+import java.time.LocalDate
 import java.time.LocalTime
-import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
 
 object AgenturenTypeConverters {
-    private val formatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME
+    private val formatter = DateTimeFormatter.ISO_LOCAL_DATE
     private val formatterTime = DateTimeFormatter.ISO_LOCAL_TIME
 
     @TypeConverter
     @JvmStatic
-    fun toOffsetDateTime(value: String?) =
-        value?.let { formatter.parse(value, OffsetDateTime::from) }
+    fun toLocalDate(value: String?) =
+        value?.let { formatter.parse(value, LocalDate::from) }
 
     @TypeConverter
     @JvmStatic
-    fun fromOffsetDateTime(date: OffsetDateTime?): String? = date?.format(formatter)
+    fun fromLocalDate(date: LocalDate?): String? = date?.format(formatter)
 
     @TypeConverters
     @JvmStatic
