@@ -21,11 +21,11 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alarm/src/main/java/com/haris/alarm/AlarmManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/alarm/src/main/java/com/haris/alarm/AlarmManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-home/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ui-home/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-home/src/main/java/com/haris/home/repositories/HomeModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-home/src/main/java/com/haris/home/repositories/HomeModule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-home/src/main/java/com/haris/home/repositories/HomeRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-home/src/main/java/com/haris/home/repositories/HomeRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common-ui/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/Create.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/Create.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/CreateViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/CreateViewModel.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

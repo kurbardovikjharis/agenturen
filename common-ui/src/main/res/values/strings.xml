@@ -10,7 +10,7 @@
     <string name="edit_button">Edit</string>
 
     <!-- create -->
-    <string name="create_title_label">Enter title</string>
+    <string name="create_title_label">Enter title*</string>
     <string name="create_description_label">Enter description</string>
     <string name="create_button">Create</string>
     <string name="update_button">Update</string>

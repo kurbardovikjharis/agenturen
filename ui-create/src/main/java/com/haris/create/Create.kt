@@ -63,7 +63,10 @@ private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
                 )
             })
 
-        Row {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
             Time(state.time) {
                 viewModel.updateTime(it)
             }
@@ -96,7 +99,7 @@ private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
             }
         }
 
-        SaveButton(isUpdate = state.isUpdate) {
+        SaveButton(enabled = state.enabled, isUpdate = state.isUpdate) {
             viewModel.save()
             navigateUp()
         }
@@ -106,7 +109,7 @@ private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
 @Composable
 private fun Time(time: LocalTime?, onTimeSelected: (LocalTime) -> Unit) {
     val formatter = LocalAgenturenDateFormatter.current
-    val formatted = if (time != null) formatter.formatShortTime(time) else "set time"
+    val formatted = if (time != null) formatter.formatShortTime(time) else "set time*"
 
     val dialogState = rememberMaterialDialogState()
     MaterialDialog(
@@ -150,7 +153,7 @@ private fun Date(date: LocalDate?, onDateSelected: (LocalDate) -> Unit) {
 }
 
 @Composable
-private fun SaveButton(isUpdate: Boolean, onSaveClicked: () -> Unit) {
+private fun SaveButton(enabled: Boolean, isUpdate: Boolean, onSaveClicked: () -> Unit) {
     val launcher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) {
@@ -177,7 +180,9 @@ private fun SaveButton(isUpdate: Boolean, onSaveClicked: () -> Unit) {
                     }
                 }
             }
-        }) {
+        },
+        enabled = enabled
+    ) {
         val text =
             if (isUpdate) stringResource(id = R.string.update_button)
             else stringResource(id = R.string.create_button)

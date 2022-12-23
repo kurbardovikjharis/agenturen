@@ -59,7 +59,7 @@ internal class CreateViewModel @Inject constructor(
                 date = date,
                 type = type,
                 isUpdate = isUpdate,
-                enabled = title.isNotEmpty()
+                enabled = title.isNotEmpty() && time != null
             )
         }.stateIn(
             scope = viewModelScope,
