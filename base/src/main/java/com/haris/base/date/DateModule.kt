@@ -15,7 +15,7 @@ import java.util.*
 class DateModule {
     @Provides
     @Date
-    fun provideMediumDateFormatter(
+    fun provideDateFormatter(
         locale: Locale,
     ): DateTimeFormatter {
         return DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withLocale(locale)
@@ -23,7 +23,7 @@ class DateModule {
 
     @Provides
     @Time
-    fun provideShortTimeFormatter(
+    fun provideTimeFormatter(
         locale: Locale,
     ): DateTimeFormatter {
         return DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT).withLocale(locale)

@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.haris.domain.interactors.GetToken
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -14,17 +15,18 @@ class MainViewModel @Inject constructor(
     getToken: GetToken
 ) : ViewModel() {
 
-    val isLoggedIn = MutableStateFlow(true)
+    private val _isLoggedIn = MutableStateFlow(true)
+    val isLoggedIn: StateFlow<Boolean> = _isLoggedIn
 
     init {
         viewModelScope.launch {
             getToken(Unit).collectLatest {
-                isLoggedIn.value = it.isNotEmpty()
+                _isLoggedIn.value = it.isNotEmpty()
             }
         }
     }
 
     fun setLoggedIn(value: Boolean) {
-        isLoggedIn.value = value
+        _isLoggedIn.value = value
     }
 }

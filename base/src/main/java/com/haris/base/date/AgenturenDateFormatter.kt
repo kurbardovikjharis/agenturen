@@ -7,14 +7,14 @@ import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 
 class AgenturenDateFormatter @Inject constructor(
-    @Time private val shortTimeFormatter: Lazy<DateTimeFormatter>,
-    @Date private val mediumDateFormatter: Lazy<DateTimeFormatter>,
+    @Time private val timeFormatter: Lazy<DateTimeFormatter>,
+    @Date private val dateFormatter: Lazy<DateTimeFormatter>,
 ) {
     fun formatMediumDate(temporalAmount: LocalDate): String {
-        return mediumDateFormatter.get().format(temporalAmount)
+        return dateFormatter.get().format(temporalAmount)
     }
 
     fun formatShortTime(localTime: LocalTime): String {
-        return shortTimeFormatter.get().format(localTime)
+        return timeFormatter.get().format(localTime)
     }
 }
