@@ -23,15 +23,16 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/haris/domain/ObservableLoadingCounter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/haris/domain/ObservableLoadingCounter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/CreateViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/CreateViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/Login.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/Login.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/LoginInteractor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/LoginInteractor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/LoginViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/LoginViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/LoginViewState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/LoginViewState.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/repositories/LoginApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/repositories/LoginApi.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/repositories/LoginRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/repositories/LoginRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/repositories/LoginRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/repositories/LoginRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alarm/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/alarm/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alarm/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/alarm/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alarm/src/main/java/com/haris/alarm/AlarmBroadcastReceiver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/alarm/src/main/java/com/haris/alarm/AlarmBroadcastReceiver.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alarm/src/main/java/com/haris/alarm/AlarmManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/alarm/src/main/java/com/haris/alarm/AlarmManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/haris/agenturen/ui/theme/Theme.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/haris/agenturen/ui/theme/Theme.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/haris/agenturen/ui/theme/Type.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/haris/agenturen/ui/theme/Type.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/java/com/haris/base/AppPreferences.kt" beforeDir="false" afterPath="$PROJECT_DIR$/base/src/main/java/com/haris/base/AppPreferences.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/data/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/com/haris/domain/Interactor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/haris/domain/Interactor.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -316,16 +317,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/repositories/CreateRepositoryImpl.kt</url>
-          <line>26</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

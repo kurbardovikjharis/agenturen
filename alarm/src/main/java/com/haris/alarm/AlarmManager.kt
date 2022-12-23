@@ -25,8 +25,7 @@ class AlarmManager @Inject constructor(
             alarmManager.setRepeating(
                 AlarmManager.RTC,
                 Calendar.getInstance().timeInMillis,
-                60000,
-//                if (isDaily) AlarmManager.INTERVAL_DAY else (AlarmManager.INTERVAL_DAY * 7),
+                if (isDaily) AlarmManager.INTERVAL_DAY else (AlarmManager.INTERVAL_DAY * 7),
                 createExactAlarmIntent(
                     id = id,
                     title = title,

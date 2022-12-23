@@ -19,18 +19,18 @@ private const val CHANNEL_ID = "com.haris.alarm.channel"
 class AlarmBroadcastReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
+        val notificationId = intent.extras?.getInt(ALARM_EXTRA_ID)
+        val title = intent.extras?.getString(ALARM_EXTRA_TITLE)
+        val desc = intent.extras?.getString(ALARM_EXTRA_DESCRIPTION)
+        val date = intent.extras?.getString(ALARM_EXTRA_DATE)
+
+        val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+            .setSmallIcon(com.google.android.material.R.drawable.ic_clock_black_24dp)
+            .setContentTitle(title)
+            .setContentText("$desc\n$date")
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val notificationId = intent.extras?.getInt(ALARM_EXTRA_ID)
-            val title = intent.extras?.getString(ALARM_EXTRA_TITLE)
-            val desc = intent.extras?.getString(ALARM_EXTRA_DESCRIPTION)
-            val date = intent.extras?.getString(ALARM_EXTRA_DATE)
-
-            val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-                .setSmallIcon(com.google.android.material.R.drawable.ic_clock_black_24dp)
-                .setContentTitle(title)
-                .setContentText("$desc\n$date")
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-
             val channel = NotificationChannel(
                 CHANNEL_ID,
                 title,
@@ -38,15 +38,16 @@ class AlarmBroadcastReceiver : BroadcastReceiver() {
             ).apply {
                 description = desc
             }
+
             // Register the channel with the system
             val notificationManager: NotificationManager =
                 context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
+        }
 
-            with(NotificationManagerCompat.from(context)) {
-                // notificationId is a unique int for each notification that you must define
-                notify(notificationId ?: 0, builder.build())
-            }
+        with(NotificationManagerCompat.from(context)) {
+            // notificationId is a unique int for each notification that you must define
+            notify(notificationId ?: 0, builder.build())
         }
     }
 }
