@@ -14,7 +14,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b10f06c8-15dc-47b7-b392-e88902db0cdb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alarm/src/main/java/com/haris/alarm/AlarmManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/alarm/src/main/java/com/haris/alarm/AlarmManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-home/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ui-home/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-home/src/main/java/com/haris/home/repositories/HomeModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-home/src/main/java/com/haris/home/repositories/HomeModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-home/src/main/java/com/haris/home/repositories/HomeRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-home/src/main/java/com/haris/home/repositories/HomeRepositoryImpl.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

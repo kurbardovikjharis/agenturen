@@ -51,6 +51,7 @@ android {
 }
 
 dependencies {
+    implementation project(':alarm')
     implementation project(':base')
     implementation project(':common-ui')
     implementation project(':data')

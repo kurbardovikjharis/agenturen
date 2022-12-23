@@ -1,5 +1,6 @@
 package com.haris.home.repositories
 
+import com.haris.alarm.AlarmManager
 import com.haris.data.daos.TodoDao
 import dagger.Module
 import dagger.Provides
@@ -11,7 +12,7 @@ import dagger.hilt.android.components.ViewModelComponent
 internal object HomeModule {
 
     @Provides
-    fun provideRepository(todoDao: TodoDao): HomeRepository {
-        return HomeRepositoryImpl(todoDao)
+    fun provideRepository(todoDao: TodoDao, alarmManager: AlarmManager): HomeRepository {
+        return HomeRepositoryImpl(dao = todoDao, alarmManager = alarmManager)
     }
 }

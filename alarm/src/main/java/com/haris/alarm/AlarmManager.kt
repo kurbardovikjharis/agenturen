@@ -37,11 +37,15 @@ class AlarmManager @Inject constructor(
         }
     }
 
+    fun cancelAlarm(id: Int) {
+        alarmManager.cancel(createExactAlarmIntent(id))
+    }
+
     private fun createExactAlarmIntent(
         id: Int,
-        title: String,
-        description: String,
-        date: String
+        title: String = "",
+        description: String = "",
+        date: String = ""
     ): PendingIntent {
         val intent = Intent(context, AlarmBroadcastReceiver::class.java).apply {
             putExtra(ALARM_EXTRA_ID, id)
