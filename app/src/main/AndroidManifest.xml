@@ -33,7 +33,6 @@
                 android:value="" />
         </activity>
 
-        <receiver android:name="com.haris.agenturen.alarm.AlarmBroadcastReceiver" />
+        <receiver android:name="com.haris.alarm.AlarmBroadcastReceiver" />
     </application>
-
 </manifest>
