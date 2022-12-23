@@ -17,7 +17,7 @@ internal class CreateRepositoryImpl @Inject constructor(
         val id = System.currentTimeMillis()
         dao.insert(
             TodoEntity(
-                uid = id,
+                id = id,
                 title = title,
                 description = description,
                 date = OffsetDateTime.now(),
@@ -32,5 +32,9 @@ internal class CreateRepositoryImpl @Inject constructor(
             description = description,
             date = OffsetDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
         )
+    }
+
+    override suspend fun getTodo(id: Long): TodoEntity {
+        return dao.getItem(id)
     }
 }

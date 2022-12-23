@@ -7,7 +7,7 @@ import java.time.OffsetDateTime
 
 @Entity(tableName = "todo")
 data class TodoEntity(
-    @PrimaryKey val uid: Long,
+    @PrimaryKey val id: Long,
     @ColumnInfo(name = "title") val title: String,
     @ColumnInfo(name = "description") val description: String,
     @ColumnInfo(name = "date") val date: OffsetDateTime,

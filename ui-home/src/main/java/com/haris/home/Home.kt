@@ -2,11 +2,9 @@ package com.haris.home
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.Card
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SmallFloatingActionButton
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -15,17 +13,17 @@ import androidx.paging.compose.items
 import com.haris.base.date.LocalAgenturenDateFormatter
 
 @Composable
-fun Home(navigateToCreate: () -> Unit) {
+fun Home(navigateToCreate: (Long?) -> Unit) {
     Home(hiltViewModel(), navigateToCreate)
 }
 
 @Composable
-private fun Home(viewModel: HomeViewModel, navigateToCreate: () -> Unit) {
+private fun Home(viewModel: HomeViewModel, navigateToCreate: (Long?) -> Unit) {
     val list = viewModel.pagedList.collectAsLazyPagingItems()
 
     Scaffold(
         floatingActionButton = {
-            SmallFloatingActionButton(onClick = navigateToCreate) {
+            SmallFloatingActionButton(onClick = { navigateToCreate(null) }) {
                 Text(modifier = Modifier.padding(16.dp), text = "Create")
             }
         }) {
@@ -43,19 +41,29 @@ private fun Home(viewModel: HomeViewModel, navigateToCreate: () -> Unit) {
                     if (date != null) formatter.formatTime(date) else ""
 
                 Card(
-                    modifier = Modifier.fillMaxWidth(),
                     onClick = {
-                        viewModel.delete(item?.uid ?: 0L)
+                        viewModel.delete(item?.id ?: 0L)
                     }) {
-                    Column(
-                        modifier = Modifier.padding(16.dp),
-                        verticalArrangement = Arrangement.spacedBy(8.dp)
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text(text = item?.title ?: "")
-                        Text(text = item?.description ?: "")
-                        Text(text = formattedTime)
-                        Text(text = formattedDate)
-                        Text(text = item?.type?.name ?: "")
+                        Column(
+                            verticalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            Text(text = item?.title ?: "")
+                            Text(text = item?.description ?: "")
+                            Text(text = formattedTime)
+                            Text(text = formattedDate)
+                            Text(text = item?.type?.name ?: "")
+                        }
+
+                        Button(onClick = { navigateToCreate(item?.id) }) {
+                            Text(text = "Edit")
+                        }
                     }
                 }
             }

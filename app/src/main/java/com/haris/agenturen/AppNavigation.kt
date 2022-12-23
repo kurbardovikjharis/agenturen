@@ -25,8 +25,13 @@ private sealed class LeafScreen(
     fun createRoute(root: Screen) = "${root.route}/$route"
 
     object Home : LeafScreen("home")
-    object Create : LeafScreen("create")
     object Login : LeafScreen("login")
+
+    object Create : LeafScreen("create/{id}") {
+        fun createRoute(root: Screen, id: Long?): String {
+            return "${root.route}/create/$id"
+        }
+    }
 }
 
 @ExperimentalAnimationApi
@@ -89,7 +94,10 @@ private fun NavGraphBuilder.addHome(
     composable(
         route = LeafScreen.Home.createRoute(root)
     ) {
-        Home(navigateToCreate = { navController.navigate(LeafScreen.Create.createRoute(root)) })
+        Home(navigateToCreate = {
+            val value = it ?: -1L
+            navController.navigate(LeafScreen.Create.createRoute(root, value))
+        })
     }
 }
 
@@ -112,7 +120,10 @@ private fun NavGraphBuilder.addCreate(
     root: Screen
 ) {
     composable(
-        route = LeafScreen.Create.createRoute(root)
+        route = LeafScreen.Create.createRoute(root),
+        arguments = listOf(
+            navArgument("id") { type = NavType.LongType },
+        ),
     ) {
         Create(navigateUp = navController::navigateUp)
     }
