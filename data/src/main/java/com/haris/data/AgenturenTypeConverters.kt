@@ -2,6 +2,7 @@ package com.haris.data
 
 import androidx.room.TypeConverter
 import androidx.room.TypeConverters
+import com.haris.data.entities.Type
 import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
 

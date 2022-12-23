@@ -57,9 +57,11 @@ android {
 
 dependencies {
     implementation project(':base')
-    implementation project(':create')
-    implementation project(':home')
-    implementation project(':login')
+    implementation project(':common-ui')
+    implementation project(':domain')
+    implementation project(':ui-create')
+    implementation project(':ui-home')
+    implementation project(':ui-login')
 
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'

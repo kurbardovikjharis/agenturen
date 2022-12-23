@@ -9,6 +9,7 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.navigation
+import com.haris.agenturen.main.MainViewModel
 import com.haris.create.Create
 import com.haris.home.Home
 import com.haris.login.Login

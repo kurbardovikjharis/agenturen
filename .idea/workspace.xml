@@ -14,6 +14,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b10f06c8-15dc-47b7-b392-e88902db0cdb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules/create/Agenturen.create.androidTest.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/create/Agenturen.create.unitTest.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/login/Agenturen.login.androidTest.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/login/Agenturen.login.unitTest.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-ui/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-ui/src/androidTest/java/com/haris/ui/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common-ui/src/test/java/com/haris/ui/ExampleUnitTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/src/androidTest/java/com/haris/domain/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/src/test/java/com/haris/domain/ExampleUnitTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui-home/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui-home/consumer-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui-home/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui-home/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui-login/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui-login/consumer-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui-login/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui-login/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -21,9 +39,92 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/src/main/java/com/haris/base/AgenturenDateFormatter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/base/src/main/java/com/haris/base/AgenturenDateFormatter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/src/main/java/com/haris/home/Home.kt" beforeDir="false" afterPath="$PROJECT_DIR$/home/src/main/java/com/haris/home/Home.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/haris/agenturen/AppNavigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/haris/agenturen/AppNavigation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/haris/agenturen/GetToken.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/haris/domain/interactors/GetToken.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/haris/agenturen/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/haris/agenturen/main/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/haris/agenturen/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/haris/agenturen/main/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/haris/agenturen/MainViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/haris/agenturen/main/MainViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/haris/agenturen/di/MainModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/haris/domain/repositories/MainModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/haris/agenturen/repositories/MainRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/haris/domain/repositories/MainRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/haris/agenturen/repositories/MainRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/haris/domain/repositories/MainRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/java/com/haris/base/Interactor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/haris/domain/Interactor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/java/com/haris/base/InvokeStatus.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/haris/domain/InvokeStatus.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/java/com/haris/base/ObservableLoadingCounter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/com/haris/domain/ObservableLoadingCounter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/res/xml/backup_rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/xml/backup_rules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create/consumer-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/consumer-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create/src/androidTest/java/com/haris/create/ExampleInstrumentedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/androidTest/java/com/haris/create/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create/src/main/java/com/haris/create/AddTodo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/AddTodo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create/src/main/java/com/haris/create/Create.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/Create.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create/src/main/java/com/haris/create/CreateViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/CreateViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create/src/main/java/com/haris/create/CreateViewState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/CreateViewState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create/src/main/java/com/haris/create/repositories/CreateModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/repositories/CreateModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create/src/main/java/com/haris/create/repositories/CreateRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/repositories/CreateRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create/src/main/java/com/haris/create/repositories/CreateRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/repositories/CreateRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create/src/test/java/com/haris/create/ExampleUnitTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/test/java/com/haris/create/ExampleUnitTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/haris/data/AgenturenDb.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/haris/data/AgenturenDb.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/haris/data/AgenturenTypeConverters.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/haris/data/AgenturenTypeConverters.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/haris/data/TodoDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/haris/data/daos/TodoDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/haris/data/TodoEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/haris/data/entities/TodoEntity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/haris/data/Type.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/haris/data/entities/Type.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/domain/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ui-home/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/consumer-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/domain/consumer-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/domain/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/src/androidTest/java/com/haris/home/ExampleInstrumentedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-home/src/androidTest/java/com/haris/home/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/src/main/java/com/haris/home/DeleteTodo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-home/src/main/java/com/haris/home/DeleteTodo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/src/main/java/com/haris/home/GetData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-home/src/main/java/com/haris/home/GetData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/src/main/java/com/haris/home/Home.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-home/src/main/java/com/haris/home/Home.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/src/main/java/com/haris/home/HomeViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-home/src/main/java/com/haris/home/HomeViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/src/main/java/com/haris/home/repositories/HomeModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-home/src/main/java/com/haris/home/repositories/HomeModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/src/main/java/com/haris/home/repositories/HomeRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-home/src/main/java/com/haris/home/repositories/HomeRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/src/main/java/com/haris/home/repositories/HomeRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-home/src/main/java/com/haris/home/repositories/HomeRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/src/test/java/com/haris/home/ExampleUnitTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-home/src/test/java/com/haris/home/ExampleUnitTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/consumer-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/consumer-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/androidTest/java/com/haris/login/ExampleInstrumentedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/androidTest/java/com/haris/login/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/main/java/com/haris/login/Login.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/Login.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/main/java/com/haris/login/LoginInteractor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/LoginInteractor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/main/java/com/haris/login/LoginViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/LoginViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/main/java/com/haris/login/LoginViewState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/LoginViewState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/main/java/com/haris/login/repositories/LoginApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/repositories/LoginApi.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/main/java/com/haris/login/repositories/LoginBody.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/repositories/LoginBody.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/main/java/com/haris/login/repositories/LoginDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/repositories/LoginDto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/main/java/com/haris/login/repositories/LoginModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/repositories/LoginModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/main/java/com/haris/login/repositories/LoginRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/repositories/LoginRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/main/java/com/haris/login/repositories/LoginRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/repositories/LoginRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/test/java/com/haris/login/ExampleUnitTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/test/java/com/haris/login/ExampleUnitTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +192,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -101,17 +203,23 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/login/src/main" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/common-ui/src/main" />
       <recent name="$PROJECT_DIR$/base/src/main" />
       <recent name="$PROJECT_DIR$/base-ui/src/main" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
-      <recent name="com.haris.data" />
-      <recent name="com.haris.base" />
-      <recent name="com.haris.agenturen.di" />
-      <recent name="com.haris.login.repositories" />
+      <recent name="com.haris.domain.repositories" />
+      <recent name="com.haris.domain.interactors" />
+      <recent name="com.haris.domain" />
+      <recent name="com.haris.agenturen.main" />
+      <recent name="com.haris.data.entities" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.haris.domain" />
     </key>
     <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
       <recent name="com.haris.create.repositories" />
@@ -223,11 +331,6 @@
           <url>file://$PROJECT_DIR$/base/src/main/java/com/haris/base/AppPreferences.kt</url>
           <line>39</line>
           <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/data/build/generated/source/kapt/debug/com/haris/data/TodoDao_Impl.java</url>
-          <line>134</line>
-          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

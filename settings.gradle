@@ -14,8 +14,10 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Agenturen"
 include ':app'
-include ':login'
+include ':ui-login'
 include ':base'
-include ':home'
-include ':create'
+include ':ui-home'
+include ':ui-create'
 include ':data'
+include ':domain'
+include ':common-ui'
