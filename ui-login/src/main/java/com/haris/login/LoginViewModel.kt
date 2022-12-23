@@ -39,27 +39,31 @@ internal class LoginViewModel @Inject constructor(
         password.value = value
     }
 
-    fun login(onLogin:()->Unit) {
+    fun login(onLogin: () -> Unit) {
         viewModelScope.launch {
             val result = loginInteractor.executeSync(
                 LoginInteractor.Params(email.value, password.value)
             )
 
-            onLogin()
-//            if (result.isEmpty()) {
-//                eventsChannel.send(SingleEvent.Error)
-//            } else {
-//                eventsChannel.send(SingleEvent.Success)
-//            }
+            if (result.isEmpty()) {
+                eventsChannel.send(SingleEvent.Error)
+            } else {
+                onLogin()
+            }
         }
     }
 
     private fun isButtonEnabled(email: String, password: String): Boolean {
-        return email.isNotEmpty() && password.isNotEmpty()
+        val isEmailValid = if (email.isEmpty()) {
+            false
+        } else {
+            android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+        }
+
+        return isEmailValid && password.length > 5
     }
 }
 
 internal sealed class SingleEvent {
-    object Success : SingleEvent()
     object Error : SingleEvent()
 }
