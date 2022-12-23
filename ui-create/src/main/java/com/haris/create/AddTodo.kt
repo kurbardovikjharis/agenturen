@@ -3,6 +3,7 @@ package com.haris.create
 import com.haris.create.repositories.CreateRepository
 import com.haris.data.entities.Type
 import com.haris.domain.Interactor
+import java.time.LocalTime
 import javax.inject.Inject
 
 internal class AddTodo @Inject constructor(
@@ -14,6 +15,7 @@ internal class AddTodo @Inject constructor(
             id = params.id,
             title = params.title,
             description = params.description,
+            time = params.time,
             type = params.type
         )
     }
@@ -22,6 +24,7 @@ internal class AddTodo @Inject constructor(
         val id: Long,
         val title: String,
         val description: String,
+        val time: LocalTime?,
         val type: Type
     )
 }

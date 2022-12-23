@@ -37,10 +37,11 @@ private fun Home(viewModel: HomeViewModel, navigateToCreate: (Long?) -> Unit) {
             items(list) { item ->
                 val formatter = LocalAgenturenDateFormatter.current
                 val date = item?.date
+                val time = item?.time
                 val formattedDate =
                     if (date != null) formatter.formatShortDate(date) else ""
                 val formattedTime =
-                    if (date != null) formatter.formatTime(date) else ""
+                    if (time != null) formatter.formatShortTime(time) else ""
 
                 Card(
                     onClick = {

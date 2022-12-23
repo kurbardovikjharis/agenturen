@@ -9,6 +9,7 @@ import com.haris.domain.collectStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import java.time.LocalTime
 import javax.inject.Inject
 
 @HiltViewModel
@@ -23,6 +24,7 @@ internal class CreateViewModel @Inject constructor(
     private val isUpdate = MutableStateFlow(false)
     private val title = MutableStateFlow("")
     private val description = MutableStateFlow("")
+    private val time = MutableStateFlow<LocalTime?>(null)
     private val type = MutableStateFlow(Type.Daily)
 
     init {
@@ -39,10 +41,17 @@ internal class CreateViewModel @Inject constructor(
     }
 
     val state: StateFlow<CreateViewState> =
-        combine(title, description, type, isUpdate) { title, description, type, isUpdate ->
+        combine(
+            title,
+            description,
+            time,
+            type,
+            isUpdate
+        ) { title, description, time, type, isUpdate ->
             CreateViewState(
                 title = title,
                 description = description,
+                time = time,
                 type = type,
                 isUpdate = isUpdate,
                 enabled = title.isNotEmpty()
@@ -65,6 +74,10 @@ internal class CreateViewModel @Inject constructor(
         type.value = value
     }
 
+    fun updateTime(value: LocalTime) {
+        time.value = value
+    }
+
     fun save() {
         viewModelScope.launch {
             addTodo(
@@ -72,6 +85,7 @@ internal class CreateViewModel @Inject constructor(
                     id = id,
                     title = title.value,
                     description = description.value,
+                    time = time.value,
                     type = type.value
                 )
             ).collectStatus(ObservableLoadingCounter())

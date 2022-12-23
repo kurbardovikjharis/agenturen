@@ -14,8 +14,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b10f06c8-15dc-47b7-b392-e88902db0cdb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/data/src/test/java/com/haris/data/DatabaseTest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/src/test/java/com/haris/data/TodoTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" afterDir="false" />
@@ -27,14 +25,25 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/data/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/haris/data/AgenturenDb.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/haris/data/AgenturenDb.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base/src/main/java/com/haris/base/date/AgenturenDateFormatter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/base/src/main/java/com/haris/base/date/AgenturenDateFormatter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/haris/data/AgenturenTypeConverters.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/haris/data/AgenturenTypeConverters.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/src/main/java/com/haris/data/entities/TodoEntity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/data/src/main/java/com/haris/data/entities/TodoEntity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-create/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/AddTodo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/AddTodo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/Create.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/Create.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/CreateViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/CreateViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/CreateViewState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/CreateViewState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/repositories/CreateRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/repositories/CreateRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/repositories/CreateRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/repositories/CreateRepositoryImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-home/src/main/java/com/haris/home/Home.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-home/src/main/java/com/haris/home/Home.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/repositories/LoginRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/repositories/LoginRepositoryImpl.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/hariskurbardovikj/.android/avd/Pixel_3a_API_33_arm64-v8a.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -130,7 +139,7 @@
       <recent name="com.haris.home.repositories" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.EpisodesTest.insert">
+  <component name="RunManager" selected="Android App.app">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="Agenturen.app.main" />
       <option name="DEPLOY" value="true" />

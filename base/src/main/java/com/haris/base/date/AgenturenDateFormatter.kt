@@ -1,6 +1,7 @@
 package com.haris.base.date
 
 import dagger.Lazy
+import java.time.LocalTime
 import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
 import javax.inject.Inject
@@ -23,7 +24,7 @@ class AgenturenDateFormatter @Inject constructor(
         return mediumDateTimeFormatter.get().format(temporalAmount)
     }
 
-    fun formatShortTime(localTime: OffsetDateTime): String {
+    fun formatShortTime(localTime: LocalTime): String {
         return shortTimeFormatter.get().format(localTime)
     }
 

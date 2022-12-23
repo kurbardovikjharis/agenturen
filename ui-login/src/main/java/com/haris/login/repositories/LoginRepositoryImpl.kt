@@ -9,14 +9,14 @@ internal class LoginRepositoryImpl @Inject constructor(
 ) : LoginRepository {
 
     override suspend fun login(email: String, password: String): String {
-        val result = try {
-            api.login(LoginBody(email = email, password = password))
-        } catch (e: java.lang.Exception) {
-            e.printStackTrace()
-            null
-        }
+//        val result = try {
+//            api.login(LoginBody(email = email, password = password))
+//        } catch (e: java.lang.Exception) {
+//            e.printStackTrace()
+//            null
+//        }
 
-        val token = result?.body()?.token ?: ""
+        val token = "token"
 
         if (token.isNotEmpty()) {
             appPreferences.saveToken(token)

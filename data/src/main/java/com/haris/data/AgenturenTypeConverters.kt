@@ -3,11 +3,13 @@ package com.haris.data
 import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 import com.haris.data.entities.Type
+import java.time.LocalTime
 import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
 
 object AgenturenTypeConverters {
     private val formatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME
+    private val formatterTime = DateTimeFormatter.ISO_LOCAL_TIME
 
     @TypeConverter
     @JvmStatic
@@ -33,4 +35,13 @@ object AgenturenTypeConverters {
             Type.Weekly
         }
     }
+
+    @TypeConverter
+    @JvmStatic
+    fun toLocalTime(value: String?) =
+        value?.let { formatterTime.parse(value, LocalTime::from) }
+
+    @TypeConverter
+    @JvmStatic
+    fun fromLocalTime(time: LocalTime?): String? = time?.format(formatterTime)
 }

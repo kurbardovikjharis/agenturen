@@ -19,8 +19,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.haris.base.date.LocalAgenturenDateFormatter
 import com.haris.data.entities.Type
 import com.haris.ui.R
+import com.vanpra.composematerialdialogs.MaterialDialog
+import com.vanpra.composematerialdialogs.datetime.time.timepicker
+import com.vanpra.composematerialdialogs.rememberMaterialDialogState
+import java.time.LocalTime
 
 @Composable
 fun Create(navigateUp: () -> Unit) {
@@ -56,6 +61,10 @@ private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
                 )
             })
 
+        Time(state.time) {
+            viewModel.updateTime(it)
+        }
+
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center,
@@ -88,6 +97,30 @@ private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
 }
 
 @Composable
+private fun Time(time: LocalTime?, onTimeSelected: (LocalTime) -> Unit) {
+    val formatter = LocalAgenturenDateFormatter.current
+    val formattedTime =
+        if (time != null) formatter.formatShortTime(time) else "set time"
+
+    val dialogState = rememberMaterialDialogState()
+    MaterialDialog(
+        dialogState = dialogState,
+        buttons = {
+            positiveButton("Ok")
+            negativeButton("Cancel")
+        }
+    ) {
+        timepicker { time ->
+            onTimeSelected(time)
+        }
+    }
+
+    Button(onClick = { dialogState.show() }) {
+        Text(text = formattedTime)
+    }
+}
+
+@Composable
 private fun SaveButton(isUpdate: Boolean, onSaveClicked: () -> Unit) {
     val launcher = rememberLauncherForActivityResult(
         ActivityResultContracts.RequestPermission()
@@ -104,7 +137,7 @@ private fun SaveButton(isUpdate: Boolean, onSaveClicked: () -> Unit) {
                     context,
                     Manifest.permission.POST_NOTIFICATIONS
                 ) -> {
-                    // Some works that require permission
+                    onSaveClicked()
                 }
                 else -> {
                     // Asking for permission

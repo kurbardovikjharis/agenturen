@@ -4,6 +4,7 @@ import com.haris.alarm.AlarmManager
 import com.haris.data.daos.TodoDao
 import com.haris.data.entities.TodoEntity
 import com.haris.data.entities.Type
+import java.time.LocalTime
 import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
 import javax.inject.Inject
@@ -13,13 +14,20 @@ internal class CreateRepositoryImpl @Inject constructor(
     private val alarmManager: AlarmManager
 ) : CreateRepository {
 
-    override suspend fun addTodo(id: Long, title: String, description: String, type: Type) {
+    override suspend fun addTodo(
+        id: Long,
+        title: String,
+        description: String,
+        time: LocalTime?,
+        type: Type
+    ) {
         val finalId = if (id != -1L) id else System.currentTimeMillis()
         dao.insert(
             TodoEntity(
                 id = finalId,
                 title = title,
                 description = description,
+                time = time,
                 date = OffsetDateTime.now(),
                 type = type
             )
