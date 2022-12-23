@@ -14,7 +14,7 @@ import java.util.*
 @Module
 class DateModule {
     @Provides
-    @MediumDate
+    @Date
     fun provideMediumDateFormatter(
         locale: Locale,
     ): DateTimeFormatter {
@@ -22,23 +22,7 @@ class DateModule {
     }
 
     @Provides
-    @MediumDateTime
-    fun provideDateTimeFormatter(
-        locale: Locale,
-    ): DateTimeFormatter {
-        return DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).withLocale(locale)
-    }
-
-    @Provides
-    @ShortDate
-    fun provideShortDateFormatter(
-        locale: Locale,
-    ): DateTimeFormatter {
-        return DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT).withLocale(locale)
-    }
-
-    @Provides
-    @ShortTime
+    @Time
     fun provideShortTimeFormatter(
         locale: Locale,
     ): DateTimeFormatter {
