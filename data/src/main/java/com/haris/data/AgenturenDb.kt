@@ -17,7 +17,7 @@ import javax.inject.Singleton
 
 @TypeConverters(AgenturenTypeConverters::class)
 @Database(entities = [TodoEntity::class], version = 1)
-abstract class AppDatabase : RoomDatabase() {
+abstract class AgenturenDb : RoomDatabase() {
     abstract fun todoDao(): TodoDao
 }
 
@@ -28,8 +28,8 @@ object RoomDatabaseModule {
     @Provides
     fun provideDatabase(
         @ApplicationContext context: Context,
-    ): AppDatabase {
-        val builder = Room.databaseBuilder(context, AppDatabase::class.java, "agenture.db")
+    ): AgenturenDb {
+        val builder = Room.databaseBuilder(context, AgenturenDb::class.java, "agenture.db")
             .fallbackToDestructiveMigration()
         if (Debug.isDebuggerConnected()) {
             builder.allowMainThreadQueries()
@@ -38,5 +38,5 @@ object RoomDatabaseModule {
     }
 
     @Provides
-    fun provideTodoDao(db: AppDatabase) = db.todoDao()
+    fun provideTodoDao(db: AgenturenDb) = db.todoDao()
 }
