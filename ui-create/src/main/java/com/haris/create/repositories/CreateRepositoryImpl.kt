@@ -5,6 +5,7 @@ import com.haris.data.daos.TodoDao
 import com.haris.data.entities.TodoEntity
 import com.haris.data.entities.Type
 import java.time.OffsetDateTime
+import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 
 internal class CreateRepositoryImpl @Inject constructor(
@@ -24,6 +25,12 @@ internal class CreateRepositoryImpl @Inject constructor(
             )
         )
 
-        alarmManager.setAlarm(type == Type.Daily)
+        alarmManager.setAlarm(
+            id = id.toInt(),
+            isDaily = type == Type.Daily,
+            title = title,
+            description = description,
+            date = OffsetDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
+        )
     }
 }

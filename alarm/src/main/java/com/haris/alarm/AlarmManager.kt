@@ -14,7 +14,7 @@ class AlarmManager @Inject constructor(
     private var alarmManager: AlarmManager =
         context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
-    fun setAlarm(isDaily: Boolean) {
+    fun setAlarm(id: Int, isDaily: Boolean, title: String, description: String, date: String) {
         val canScheduleExactAlarms = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             alarmManager.canScheduleExactAlarms()
         } else {
@@ -27,18 +27,33 @@ class AlarmManager @Inject constructor(
                 Calendar.getInstance().timeInMillis,
                 60000,
 //                if (isDaily) AlarmManager.INTERVAL_DAY else (AlarmManager.INTERVAL_DAY * 7),
-                createExactAlarmIntent()
+                createExactAlarmIntent(
+                    id = id,
+                    title = title,
+                    description = description,
+                    date = date
+                )
             )
         }
     }
 
-    private fun createExactAlarmIntent(): PendingIntent {
-        val intent = Intent(context, AlarmBroadcastReceiver::class.java)
+    private fun createExactAlarmIntent(
+        id: Int,
+        title: String,
+        description: String,
+        date: String
+    ): PendingIntent {
+        val intent = Intent(context, AlarmBroadcastReceiver::class.java).apply {
+            putExtra(ALARM_EXTRA_ID, id)
+            putExtra(ALARM_EXTRA_TITLE, title)
+            putExtra(ALARM_EXTRA_DESCRIPTION, description)
+            putExtra(ALARM_EXTRA_DATE, date)
+        }
         return PendingIntent.getBroadcast(
             context,
-            1,
+            id,
             intent,
-            PendingIntent.FLAG_IMMUTABLE
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
     }
 }

@@ -23,20 +23,10 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alarm/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/alarm/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alarm/src/main/java/com/haris/alarm/AlarmBroadcastReceiver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/alarm/src/main/java/com/haris/alarm/AlarmBroadcastReceiver.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/alarm/src/main/java/com/haris/alarm/AlarmManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/alarm/src/main/java/com/haris/alarm/AlarmManager.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/haris/agenturen/di/AppModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/haris/agenturen/di/AppModule.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/haris/agenturen/main/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/haris/agenturen/main/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/base/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-ui/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/data/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/domain/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-create/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/repositories/CreateModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/repositories/CreateModule.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/repositories/CreateRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/repositories/CreateRepositoryImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-home/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ui-home/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-login/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,10 +115,10 @@
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.haris.alarm" />
+      <recent name="com.haris.agenturen.alarm" />
       <recent name="com.haris.domain.repositories" />
       <recent name="com.haris.domain.interactors" />
       <recent name="com.haris.domain" />
-      <recent name="com.haris.agenturen.main" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.haris.domain" />
