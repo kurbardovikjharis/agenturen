@@ -54,7 +54,7 @@ internal fun AppNavigation(
         modifier = modifier,
     ) {
         addHomeTopLevel(navController)
-        addLoginTopLevel(navController) {
+        addLoginTopLevel {
             viewModel.setLoggedIn(true)
         }
     }
@@ -75,14 +75,13 @@ private fun NavGraphBuilder.addHomeTopLevel(
 
 @ExperimentalAnimationApi
 private fun NavGraphBuilder.addLoginTopLevel(
-    navController: NavController,
     onLogin: () -> Unit
 ) {
     navigation(
         route = Screen.Login.route,
         startDestination = LeafScreen.Login.createRoute(Screen.Login),
     ) {
-        addLogin(navController, Screen.Login, onLogin)
+        addLogin(Screen.Login, onLogin)
     }
 }
 
@@ -103,7 +102,6 @@ private fun NavGraphBuilder.addHome(
 
 @ExperimentalAnimationApi
 private fun NavGraphBuilder.addLogin(
-    navController: NavController,
     root: Screen,
     onLogin: () -> Unit
 ) {

@@ -1,5 +1,10 @@
 package com.haris.create
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.RadioButton
@@ -9,8 +14,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.haris.data.entities.Type
 import com.haris.ui.R
@@ -73,16 +80,45 @@ private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
             }
         }
 
-        Button(
-            modifier = Modifier.fillMaxWidth(),
-            onClick = {
-                viewModel.save()
-                navigateUp()
-            }) {
-            val text =
-                if (state.isUpdate) stringResource(id = R.string.update_button)
-                else stringResource(id = R.string.create_button)
-            Text(text = text)
+        SaveButton(isUpdate = state.isUpdate) {
+            viewModel.save()
+            navigateUp()
         }
+    }
+}
+
+@Composable
+private fun SaveButton(isUpdate: Boolean, onSaveClicked: () -> Unit) {
+    val launcher = rememberLauncherForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) {
+        onSaveClicked() // handle click even if the user doesn't allow post notifications
+    }
+
+    val context = LocalContext.current
+    Button(
+        modifier = Modifier.fillMaxWidth(),
+        onClick = {
+            when (PackageManager.PERMISSION_GRANTED) {
+                ContextCompat.checkSelfPermission(
+                    context,
+                    Manifest.permission.POST_NOTIFICATIONS
+                ) -> {
+                    // Some works that require permission
+                }
+                else -> {
+                    // Asking for permission
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                        launcher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                    } else {
+                        onSaveClicked()
+                    }
+                }
+            }
+        }) {
+        val text =
+            if (isUpdate) stringResource(id = R.string.update_button)
+            else stringResource(id = R.string.create_button)
+        Text(text = text)
     }
 }
