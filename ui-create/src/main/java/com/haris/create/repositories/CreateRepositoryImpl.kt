@@ -13,11 +13,11 @@ internal class CreateRepositoryImpl @Inject constructor(
     private val alarmManager: AlarmManager
 ) : CreateRepository {
 
-    override suspend fun addTodo(title: String, description: String, type: Type) {
-        val id = System.currentTimeMillis()
+    override suspend fun addTodo(id: Long, title: String, description: String, type: Type) {
+        val finalId = if (id != -1L) id else System.currentTimeMillis()
         dao.insert(
             TodoEntity(
-                id = id,
+                id = finalId,
                 title = title,
                 description = description,
                 date = OffsetDateTime.now(),
@@ -26,7 +26,7 @@ internal class CreateRepositoryImpl @Inject constructor(
         )
 
         alarmManager.setAlarm(
-            id = id.toInt(),
+            id = finalId.toInt(),
             isDaily = type == Type.Daily,
             title = title,
             description = description,

@@ -12,8 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.haris.ui.R
 import com.haris.data.entities.Type
+import com.haris.ui.R
 
 @Composable
 fun Create(navigateUp: () -> Unit) {
@@ -79,9 +79,10 @@ private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
                 viewModel.save()
                 navigateUp()
             }) {
-            Text(
-                text = stringResource(id = R.string.create_button)
-            )
+            val text =
+                if (state.isUpdate) stringResource(id = R.string.update_button)
+                else stringResource(id = R.string.create_button)
+            Text(text = text)
         }
     }
 }

@@ -10,6 +10,7 @@ internal data class CreateViewState(
     val time: String = "",
     val date: String = "",
     val type: Type = Type.Daily,
+    val isUpdate: Boolean = false,
     val enabled: Boolean = false
 ) {
 

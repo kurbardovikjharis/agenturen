@@ -13,18 +13,21 @@ import javax.inject.Inject
 
 @HiltViewModel
 internal class CreateViewModel @Inject constructor(
-    private val savedStateHandle: SavedStateHandle,
+    savedStateHandle: SavedStateHandle,
     private val addTodo: AddTodo,
     private val getTodo: GetTodo
 ) : ViewModel() {
 
+    private val id = savedStateHandle.get<Long>("id") ?: -1L
+
+    private val isUpdate = MutableStateFlow(false)
     private val title = MutableStateFlow("")
     private val description = MutableStateFlow("")
     private val type = MutableStateFlow(Type.Daily)
 
     init {
-        val id = savedStateHandle.get<Long>("id") ?: -1L
         if (id != -1L) {
+            isUpdate.value = true
             viewModelScope.launch {
                 getTodo(id).collectLatest {
                     title.value = it.title
@@ -36,11 +39,12 @@ internal class CreateViewModel @Inject constructor(
     }
 
     val state: StateFlow<CreateViewState> =
-        combine(title, description, type) { title, description, type ->
+        combine(title, description, type, isUpdate) { title, description, type, isUpdate ->
             CreateViewState(
                 title = title,
                 description = description,
                 type = type,
+                isUpdate = isUpdate,
                 enabled = title.isNotEmpty() && description.isNotEmpty()
             )
         }.stateIn(
@@ -65,6 +69,7 @@ internal class CreateViewModel @Inject constructor(
         viewModelScope.launch {
             addTodo(
                 AddTodo.Params(
+                    id = id,
                     title = title.value,
                     description = description.value,
                     type = type.value

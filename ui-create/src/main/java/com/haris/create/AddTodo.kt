@@ -11,6 +11,7 @@ internal class AddTodo @Inject constructor(
 
     override suspend fun doWork(params: Params) {
         repository.addTodo(
+            id = params.id,
             title = params.title,
             description = params.description,
             type = params.type
@@ -18,6 +19,7 @@ internal class AddTodo @Inject constructor(
     }
 
     data class Params(
+        val id: Long,
         val title: String,
         val description: String,
         val type: Type

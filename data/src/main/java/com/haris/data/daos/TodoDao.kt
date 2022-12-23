@@ -15,7 +15,7 @@ abstract class TodoDao {
     @Query("SELECT * FROM todo WHERE id = :id")
     abstract suspend fun getItem(id: Long): TodoEntity
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract suspend fun insert(entity: TodoEntity): Long
 
     @Query("DELETE FROM todo WHERE id = :id")

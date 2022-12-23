@@ -10,6 +10,7 @@
     <string name="create_title_label">Enter title</string>
     <string name="create_description_label">Enter description</string>
     <string name="create_button">Create</string>
+    <string name="update_button">Update</string>
 
     <string name="create_daily">Daily</string>
     <string name="create_weekly">Weekly</string>
