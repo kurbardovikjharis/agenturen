@@ -1,6 +1,7 @@
 package com.haris.agenturen.di
 
 import android.app.Application
+import android.content.Context
 import com.haris.base.AppCoroutineDispatchers
 import dagger.Module
 import dagger.Provides
@@ -14,7 +15,7 @@ import javax.inject.Singleton
 object AppModule {
 
     @Provides
-    fun provideApplicationId(application: Application): String = application.packageName
+    fun provideContext(application: Application): Context = application.applicationContext
 
     @Singleton
     @Provides

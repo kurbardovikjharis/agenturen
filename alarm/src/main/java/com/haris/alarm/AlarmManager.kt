@@ -1,6 +1,5 @@
 package com.haris.alarm
 
-import android.app.Activity
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
@@ -9,10 +8,11 @@ import android.os.Build
 import java.util.*
 import javax.inject.Inject
 
-class AlarmManager @Inject constructor(private val activity: Activity) {
-
+class AlarmManager @Inject constructor(
+    private val context: Context
+) {
     private var alarmManager: AlarmManager =
-        activity.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
     fun setAlarm(isDaily: Boolean) {
         val canScheduleExactAlarms = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -33,9 +33,9 @@ class AlarmManager @Inject constructor(private val activity: Activity) {
     }
 
     private fun createExactAlarmIntent(): PendingIntent {
-        val intent = Intent(activity, AlarmBroadcastReceiver::class.java)
+        val intent = Intent(context, AlarmBroadcastReceiver::class.java)
         return PendingIntent.getBroadcast(
-            activity,
+            context,
             1,
             intent,
             PendingIntent.FLAG_IMMUTABLE

@@ -9,7 +9,6 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import com.haris.agenturen.ui.theme.AgenturenTheme
-import com.haris.alarm.AlarmManager
 import com.haris.base.AgenturenDateFormatter
 import com.haris.base.LocalAgenturenDateFormatter
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,9 +20,6 @@ class MainActivity : ComponentActivity() {
     @Inject
     internal lateinit var agenturenDateFormatter: AgenturenDateFormatter
 
-    @Inject
-    internal lateinit var alarmManager: AlarmManager
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -31,7 +27,6 @@ class MainActivity : ComponentActivity() {
                 CompositionLocalProvider(
                     LocalAgenturenDateFormatter provides agenturenDateFormatter,
                 ) {
-                    // A surface container using the 'background' color from the theme
                     Surface(
                         modifier = Modifier.fillMaxSize(),
                         color = MaterialTheme.colorScheme.background
@@ -41,7 +36,5 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-
-        alarmManager.setAlarm(true)
     }
 }

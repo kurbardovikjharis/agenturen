@@ -1,5 +1,6 @@
 package com.haris.create.repositories
 
+import com.haris.alarm.AlarmManager
 import com.haris.data.daos.TodoDao
 import com.haris.data.entities.TodoEntity
 import com.haris.data.entities.Type
@@ -7,7 +8,8 @@ import java.time.OffsetDateTime
 import javax.inject.Inject
 
 internal class CreateRepositoryImpl @Inject constructor(
-    private val dao: TodoDao
+    private val dao: TodoDao,
+    private val alarmManager: AlarmManager
 ) : CreateRepository {
 
     override suspend fun addTodo(title: String, description: String, type: Type) {
@@ -21,5 +23,7 @@ internal class CreateRepositoryImpl @Inject constructor(
                 type = type
             )
         )
+
+        alarmManager.setAlarm(type == Type.Daily)
     }
 }
