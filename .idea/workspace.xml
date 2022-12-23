@@ -14,8 +14,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b10f06c8-15dc-47b7-b392-e88902db0cdb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/common-ui/src/main/res/drawable/ic_baseline_visibility_24.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common-ui/src/main/res/drawable/ic_baseline_visibility_off_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -25,9 +24,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/Login.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/Login.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/CreateViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/CreateViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-home/src/main/java/com/haris/home/Home.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-home/src/main/java/com/haris/home/Home.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/LoginViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/LoginViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/repositories/LoginRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/repositories/LoginRepositoryImpl.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +129,7 @@
       <recent name="com.haris.home.repositories" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Android App.app">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="Agenturen.app.main" />
       <option name="DEPLOY" value="true" />
@@ -190,6 +189,82 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ExampleUnitTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":ui-login:testDebugUnitTest" />
+            <option value="--tests" />
+            <option value="&quot;com.haris.login.ExampleUnitTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ExampleUnitTest.addition_isCorrect" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":ui-login:testDebugUnitTest" />
+            <option value="--tests" />
+            <option value="&quot;com.haris.login.ExampleUnitTest.addition_isCorrect&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ExampleUnitTest.isStateValid" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":ui-login:testDebugUnitTest" />
+            <option value="--tests" />
+            <option value="&quot;com.haris.login.ExampleUnitTest.isStateValid&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.ExampleUnitTest.addition_isCorrect" />
+        <item itemvalue="Gradle.ExampleUnitTest" />
+        <item itemvalue="Gradle.ExampleUnitTest.isStateValid" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

@@ -54,11 +54,17 @@ private fun Home(viewModel: HomeViewModel, navigateToCreate: (Long?) -> Unit) {
                         Column(
                             verticalArrangement = Arrangement.spacedBy(8.dp)
                         ) {
-                            Text(text = item?.title ?: "")
-                            Text(text = item?.description ?: "")
+                            if (item?.title?.isNotEmpty() == true) {
+                                Text(text = item.title)
+                            }
+                            if (item?.description?.isNotEmpty() == true) {
+                                Text(text = item.description)
+                            }
                             Text(text = formattedTime)
                             Text(text = formattedDate)
-                            Text(text = item?.type?.name ?: "")
+                            if (item?.type?.name?.isNotEmpty() == true) {
+                                Text(text = item.type.name)
+                            }
                         }
 
                         Button(onClick = { navigateToCreate(item?.id) }) {

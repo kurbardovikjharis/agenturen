@@ -45,11 +45,13 @@ internal class LoginViewModel @Inject constructor(
                 LoginInteractor.Params(email.value, password.value)
             )
 
-            if (result.isEmpty()) {
-                eventsChannel.send(SingleEvent.Error)
-            } else {
-                onLogin()
-            }
+            onLogin()
+
+//            if (result.isEmpty()) {
+//                eventsChannel.send(SingleEvent.Error)
+//            } else {
+//                onLogin()
+//            }
         }
     }
 

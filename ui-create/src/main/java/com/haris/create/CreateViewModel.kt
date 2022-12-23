@@ -45,7 +45,7 @@ internal class CreateViewModel @Inject constructor(
                 description = description,
                 type = type,
                 isUpdate = isUpdate,
-                enabled = title.isNotEmpty() && description.isNotEmpty()
+                enabled = title.isNotEmpty()
             )
         }.stateIn(
             scope = viewModelScope,
