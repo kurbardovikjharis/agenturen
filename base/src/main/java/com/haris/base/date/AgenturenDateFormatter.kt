@@ -1,4 +1,4 @@
-package com.haris.base
+package com.haris.base.date
 
 import dagger.Lazy
 import java.time.OffsetDateTime

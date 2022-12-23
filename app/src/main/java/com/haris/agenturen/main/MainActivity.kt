@@ -8,11 +8,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.CompositionLocalProvider
 import com.haris.agenturen.ui.theme.AgenturenTheme
-import com.haris.base.AgenturenDateFormatter
-import com.haris.base.LocalAgenturenDateFormatter
+import com.haris.base.date.AgenturenDateFormatter
+import com.haris.base.date.LocalAgenturenDateFormatter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
-
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

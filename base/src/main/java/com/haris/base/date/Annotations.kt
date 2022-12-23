@@ -1,4 +1,4 @@
-package com.haris.base
+package com.haris.base.date
 
 import javax.inject.Qualifier
 
@@ -21,8 +21,3 @@ annotation class ShortDate
 @Qualifier
 @MustBeDocumented
 annotation class ShortTime
-
-@Retention(AnnotationRetention.RUNTIME)
-@Qualifier
-@MustBeDocumented
-annotation class ApplicationId

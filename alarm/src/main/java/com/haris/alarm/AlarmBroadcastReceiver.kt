@@ -17,13 +17,14 @@ const val ALARM_EXTRA_DATE = "com.haris.alarm.date"
 private const val CHANNEL_ID = "com.haris.alarm.channel"
 
 class AlarmBroadcastReceiver : BroadcastReceiver() {
-    
+
     override fun onReceive(context: Context, intent: Intent) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val notificationId = intent.extras?.getInt(ALARM_EXTRA_ID)
             val title = intent.extras?.getString(ALARM_EXTRA_TITLE)
             val desc = intent.extras?.getString(ALARM_EXTRA_DESCRIPTION)
             val date = intent.extras?.getString(ALARM_EXTRA_DATE)
+
             val builder = NotificationCompat.Builder(context, CHANNEL_ID)
                 .setSmallIcon(com.google.android.material.R.drawable.ic_clock_black_24dp)
                 .setContentTitle(title)

@@ -59,6 +59,7 @@ dependencies {
     implementation project(':alarm')
     implementation project(':base')
     implementation project(':common-ui')
+    implementation project(':data')
     implementation project(':domain')
     implementation project(':ui-create')
     implementation project(':ui-home')

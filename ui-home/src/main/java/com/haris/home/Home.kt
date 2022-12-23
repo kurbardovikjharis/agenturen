@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
-import com.haris.base.LocalAgenturenDateFormatter
+import com.haris.base.date.LocalAgenturenDateFormatter
 
 @Composable
 fun Home(navigateToCreate: () -> Unit) {

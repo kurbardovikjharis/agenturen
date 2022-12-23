@@ -53,6 +53,7 @@ android {
 dependencies {
     implementation project(':base')
     implementation project(':common-ui')
+    implementation project(':data')
     implementation project(':domain')
 
     implementation 'androidx.core:core-ktx:1.9.0'

@@ -2,7 +2,7 @@ package com.haris.agenturen.di
 
 import android.app.Application
 import android.content.Context
-import com.haris.base.AppCoroutineDispatchers
+import com.haris.data.AppCoroutineDispatchers
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

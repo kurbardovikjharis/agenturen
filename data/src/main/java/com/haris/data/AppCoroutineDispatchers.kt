@@ -1,4 +1,4 @@
-package com.haris.base
+package com.haris.data
 
 import kotlinx.coroutines.CoroutineDispatcher
 

@@ -1,4 +1,4 @@
-package com.haris.base
+package com.haris.base.date
 
 import android.app.Activity
 import androidx.core.os.ConfigurationCompat

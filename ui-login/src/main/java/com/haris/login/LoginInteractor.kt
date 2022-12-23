@@ -1,6 +1,6 @@
 package com.haris.login
 
-import com.haris.base.AppCoroutineDispatchers
+import com.haris.data.AppCoroutineDispatchers
 import com.haris.domain.ResultInteractor
 import com.haris.login.repositories.LoginRepository
 import kotlinx.coroutines.withContext
