@@ -38,65 +38,71 @@ private fun Login(viewModel: LoginViewModel, onLogin: () -> Unit) {
         }
     }
 
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        TextField(
-            value = state.email,
-            onValueChange = { viewModel.updateEmail(it) },
-            label = {
-                Text(text = stringResource(id = R.string.login_email_label))
-            },
-            keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Email,
-                imeAction = ImeAction.Next
+    Box {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            TextField(
+                value = state.email,
+                onValueChange = { viewModel.updateEmail(it) },
+                label = {
+                    Text(text = stringResource(id = R.string.login_email_label))
+                },
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Email,
+                    imeAction = ImeAction.Next
+                )
             )
-        )
 
-        val isPasswordVisible = remember {
-            mutableStateOf(false)
+            val isPasswordVisible = remember {
+                mutableStateOf(false)
+            }
+
+            TextField(
+                value = state.password,
+                onValueChange = { viewModel.updatePassword(it) },
+                label = {
+                    Text(text = stringResource(id = R.string.login_password_label))
+                },
+                visualTransformation = if (isPasswordVisible.value) VisualTransformation.None else PasswordVisualTransformation(),
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Password,
+                    imeAction = ImeAction.Done
+                ),
+                keyboardActions = KeyboardActions(
+                    onDone = {
+                        viewModel.login(onLogin)
+                    },
+                ),
+                trailingIcon = {
+                    val painter = if (isPasswordVisible.value)
+                        painterResource(id = R.drawable.ic_baseline_visibility_24)
+                    else
+                        painterResource(id = R.drawable.ic_baseline_visibility_off_24)
+
+                    val contentDescription =
+                        if (isPasswordVisible.value) "Hide password" else "Show password"
+                    IconButton(
+                        onClick = { isPasswordVisible.value = !isPasswordVisible.value }
+                    ) {
+                        Icon(painter = painter, contentDescription = contentDescription)
+                    }
+                }
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Button(onClick = { viewModel.login(onLogin) }, enabled = state.isButtonEnabled) {
+                Text(text = stringResource(id = R.string.login_button))
+            }
         }
 
-        TextField(
-            value = state.password,
-            onValueChange = { viewModel.updatePassword(it) },
-            label = {
-                Text(text = stringResource(id = R.string.login_password_label))
-            },
-            visualTransformation = if (isPasswordVisible.value) VisualTransformation.None else PasswordVisualTransformation(),
-            keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Password,
-                imeAction = ImeAction.Done
-            ),
-            keyboardActions = KeyboardActions(
-                onDone = {
-                    viewModel.login(onLogin)
-                },
-            ),
-            trailingIcon = {
-                val painter = if (isPasswordVisible.value)
-                    painterResource(id = R.drawable.ic_baseline_visibility_24)
-                else
-                    painterResource(id = R.drawable.ic_baseline_visibility_off_24)
-
-                val contentDescription =
-                    if (isPasswordVisible.value) "Hide password" else "Show password"
-                IconButton(
-                    onClick = { isPasswordVisible.value = !isPasswordVisible.value }
-                ) {
-                    Icon(painter = painter, contentDescription = contentDescription)
-                }
-            }
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Button(onClick = { viewModel.login(onLogin) }, enabled = state.isButtonEnabled) {
-            Text(text = stringResource(id = R.string.login_button))
+        if (state.isLoading) {
+            CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
         }
     }
 }

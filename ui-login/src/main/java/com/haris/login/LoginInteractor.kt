@@ -1,7 +1,7 @@
 package com.haris.login
 
 import com.haris.data.AppCoroutineDispatchers
-import com.haris.domain.ResultInteractor
+import com.haris.domain.Interactor
 import com.haris.login.repositories.LoginRepository
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -9,12 +9,13 @@ import javax.inject.Inject
 internal class LoginInteractor @Inject constructor(
     private val dispatchers: AppCoroutineDispatchers,
     private val repository: LoginRepository
-) : ResultInteractor<LoginInteractor.Params, String>() {
+) : Interactor<LoginInteractor.Params>() {
 
-    override suspend fun doWork(params: Params): String =
+    data class Params(val email: String, val password: String)
+
+    override suspend fun doWork(params: Params) {
         withContext(dispatchers.io) {
             repository.login(email = params.email, password = params.password)
         }
-
-    data class Params(val email: String, val password: String)
+    }
 }

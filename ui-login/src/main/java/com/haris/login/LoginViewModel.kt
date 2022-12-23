@@ -2,6 +2,8 @@ package com.haris.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.haris.domain.ObservableLoadingCounter
+import com.haris.domain.collectStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
@@ -13,23 +15,27 @@ internal class LoginViewModel @Inject constructor(
     private val loginInteractor: LoginInteractor
 ) : ViewModel() {
 
+    private val counter = ObservableLoadingCounter()
+
     private val eventsChannel = Channel<SingleEvent>(Channel.BUFFERED)
     val singleEvent: Flow<SingleEvent> = eventsChannel.receiveAsFlow()
 
     private val email = MutableStateFlow("")
     private val password = MutableStateFlow("")
 
-    val state: StateFlow<LoginViewState> = combine(email, password) { email, password ->
-        LoginViewState(
-            email = email,
-            password = password,
-            isButtonEnabled = isButtonEnabled(email, password)
+    val state: StateFlow<LoginViewState> =
+        combine(email, password, counter.observable) { email, password, isLoading ->
+            LoginViewState(
+                email = email,
+                password = password,
+                isLoading = isLoading,
+                isButtonEnabled = isButtonEnabled(email, password)
+            )
+        }.stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(),
+            initialValue = LoginViewState.Empty,
         )
-    }.stateIn(
-        scope = viewModelScope,
-        started = SharingStarted.WhileSubscribed(),
-        initialValue = LoginViewState.Empty,
-    )
 
     fun updateEmail(value: String) {
         email.value = value
@@ -41,17 +47,15 @@ internal class LoginViewModel @Inject constructor(
 
     fun login(onLogin: () -> Unit) {
         viewModelScope.launch {
-            val result = loginInteractor.executeSync(
+            loginInteractor(
                 LoginInteractor.Params(email.value, password.value)
-            )
-
-            onLogin()
-
-//            if (result.isEmpty()) {
-//                eventsChannel.send(SingleEvent.Error)
-//            } else {
-//                onLogin()
-//            }
+            ).collectStatus(
+                counter,
+                onSuccess = {
+                    onLogin()
+                }, onError = {
+                    viewModelScope.launch { eventsChannel.send(SingleEvent.Error) }
+                })
         }
     }
 

@@ -24,14 +24,20 @@ class ObservableLoadingCounter {
 }
 
 suspend fun Flow<InvokeStatus>.collectStatus(
-    counter: ObservableLoadingCounter
+    counter: ObservableLoadingCounter,
+    onSuccess: (() -> Unit)? = null,
+    onError: ((Throwable) -> Unit)? = null
 ) = collect { status ->
     when (status) {
         InvokeStarted -> counter.addLoader()
-        InvokeSuccess -> counter.removeLoader()
+        InvokeSuccess -> {
+            counter.removeLoader()
+            onSuccess?.invoke()
+        }
         is InvokeError -> {
             Timber.i(status.throwable)
             counter.removeLoader()
+            onError?.invoke(status.throwable)
         }
     }
 }

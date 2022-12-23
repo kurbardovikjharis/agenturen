@@ -6,6 +6,7 @@ import javax.annotation.concurrent.Immutable
 internal data class LoginViewState(
     val email: String = "",
     val password: String = "",
+    val isLoading: Boolean = false,
     val isButtonEnabled: Boolean = false
 ) {
 
