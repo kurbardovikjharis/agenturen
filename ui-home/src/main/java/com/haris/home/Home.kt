@@ -6,11 +6,13 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import com.haris.base.date.LocalAgenturenDateFormatter
+import com.haris.ui.R
 
 @Composable
 fun Home(navigateToCreate: (Long?) -> Unit) {
@@ -68,7 +70,7 @@ private fun Home(viewModel: HomeViewModel, navigateToCreate: (Long?) -> Unit) {
                         }
 
                         Button(onClick = { navigateToCreate(item?.id) }) {
-                            Text(text = "Edit")
+                            Text(text = stringResource(id = R.string.edit_button))
                         }
                     }
                 }

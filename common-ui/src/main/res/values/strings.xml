@@ -6,6 +6,9 @@
     <string name="login_password_label">Enter password</string>
     <string name="login_button">Login</string>
 
+    <!-- home -->
+    <string name="edit_button">Edit</string>
+
     <!-- create -->
     <string name="create_title_label">Enter title</string>
     <string name="create_description_label">Enter description</string>
