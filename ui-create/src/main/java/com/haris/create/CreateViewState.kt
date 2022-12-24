@@ -13,7 +13,8 @@ internal data class CreateViewState(
     val date: LocalDate? = null,
     val type: Type = Type.Daily,
     val isUpdate: Boolean = false,
-    val enabled: Boolean = false
+    val enabled: Boolean = false,
+    val isLoading: Boolean = false
 ) {
 
     companion object {

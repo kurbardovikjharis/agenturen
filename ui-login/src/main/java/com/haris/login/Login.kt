@@ -28,12 +28,13 @@ fun Login(onLogin: () -> Unit) {
 @Composable
 private fun Login(viewModel: LoginViewModel, onLogin: () -> Unit) {
     val state = viewModel.state.collectAsState().value
-
     val context = LocalContext.current
+    val errorMessage = stringResource(id = R.string.common_error)
+
     LaunchedEffect(true) {
         viewModel.singleEvent.collectLatest {
             if (it == SingleEvent.Error) {
-                Toast.makeText(context, "error", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, errorMessage, Toast.LENGTH_SHORT).show()
             }
         }
     }

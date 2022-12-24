@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Agenturen</string>
 
+    <!-- common -->
+    <string name="common_ok">OK</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="common_error">Error</string>
+
     <!-- login -->
     <string name="login_email_label">Enter email</string>
     <string name="login_password_label">Enter password</string>

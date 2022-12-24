@@ -8,6 +8,7 @@ import com.haris.data.entities.Type
 import com.haris.domain.ObservableLoadingCounter
 import com.haris.domain.collectStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import java.time.LocalDate
@@ -20,6 +21,11 @@ internal class CreateViewModel @Inject constructor(
     private val addTodo: AddTodo,
     private val getTodo: GetTodo
 ) : ViewModel() {
+
+    private val eventsChannel = Channel<SingleEvent>(Channel.BUFFERED)
+    val singleEvent: Flow<SingleEvent> = eventsChannel.receiveAsFlow()
+
+    private val counter = ObservableLoadingCounter()
 
     private val id = savedStateHandle.get<Long>("id") ?: -1L
 
@@ -52,8 +58,9 @@ internal class CreateViewModel @Inject constructor(
             time,
             date,
             type,
-            isUpdate
-        ) { title, description, time, date, type, isUpdate ->
+            isUpdate,
+            counter.observable
+        ) { title, description, time, date, type, isUpdate, isLoading ->
             CreateViewState(
                 title = title,
                 description = description,
@@ -61,7 +68,8 @@ internal class CreateViewModel @Inject constructor(
                 date = date,
                 type = type,
                 isUpdate = isUpdate,
-                enabled = title.isNotEmpty() && time != null
+                enabled = title.isNotEmpty() && time != null,
+                isLoading = isLoading
             )
         }.stateIn(
             scope = viewModelScope,
@@ -77,10 +85,6 @@ internal class CreateViewModel @Inject constructor(
         description.value = value
     }
 
-    fun updateType(value: Type) {
-        type.value = value
-    }
-
     fun updateTime(value: LocalTime) {
         time.value = value
     }
@@ -89,7 +93,11 @@ internal class CreateViewModel @Inject constructor(
         date.value = value
     }
 
-    fun save() {
+    fun updateType(value: Type) {
+        type.value = value
+    }
+
+    fun save(onDone: () -> Unit) {
         viewModelScope.launch {
             addTodo(
                 AddTodo.Params(
@@ -100,7 +108,18 @@ internal class CreateViewModel @Inject constructor(
                     date = date.value,
                     type = type.value
                 )
-            ).collectStatus(ObservableLoadingCounter())
+            ).collectStatus(
+                counter,
+                onSuccess = onDone,
+                onError = {
+                    viewModelScope.launch {
+                        eventsChannel.send(SingleEvent.Error)
+                    }
+                })
         }
     }
+}
+
+internal sealed class SingleEvent {
+    object Error : SingleEvent()
 }

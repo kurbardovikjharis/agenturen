@@ -3,6 +3,7 @@ package com.haris.create
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
+import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
@@ -11,6 +12,7 @@ import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,6 +28,7 @@ import com.vanpra.composematerialdialogs.MaterialDialog
 import com.vanpra.composematerialdialogs.datetime.date.datepicker
 import com.vanpra.composematerialdialogs.datetime.time.timepicker
 import com.vanpra.composematerialdialogs.rememberMaterialDialogState
+import kotlinx.coroutines.flow.collectLatest
 import java.time.LocalDate
 import java.time.LocalTime
 
@@ -37,6 +40,20 @@ fun Create(navigateUp: () -> Unit) {
 @Composable
 private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
     val state = viewModel.state.collectAsState().value
+    val context = LocalContext.current
+
+    val errorMessage = stringResource(id = R.string.common_error)
+    LaunchedEffect(true) {
+        viewModel.singleEvent.collectLatest {
+            if (it == SingleEvent.Error) {
+                Toast.makeText(
+                    context,
+                    errorMessage,
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+    }
 
     Column(
         modifier = Modifier.padding(16.dp),
@@ -65,11 +82,13 @@ private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
 
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(16.dp)
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Time(state.time) {
                 viewModel.updateTime(it)
             }
+            Spacer(modifier = Modifier.width(16.dp))
             Date(state.date) {
                 viewModel.updateDate(it)
             }
@@ -99,9 +118,10 @@ private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
             }
         }
 
+        Spacer(modifier = Modifier.height(16.dp))
+
         SaveButton(enabled = state.enabled, isUpdate = state.isUpdate) {
-            viewModel.save()
-            navigateUp()
+            viewModel.save(navigateUp)
         }
     }
 }
@@ -115,8 +135,8 @@ private fun Time(time: LocalTime?, onTimeSelected: (LocalTime) -> Unit) {
     MaterialDialog(
         dialogState = dialogState,
         buttons = {
-            positiveButton("Ok")
-            negativeButton("Cancel")
+            positiveButton(stringResource(id = R.string.common_ok))
+            negativeButton(stringResource(id = R.string.common_cancel))
         }
     ) {
         timepicker { time ->
@@ -138,8 +158,8 @@ private fun Date(date: LocalDate?, onDateSelected: (LocalDate) -> Unit) {
     MaterialDialog(
         dialogState = dialogState,
         buttons = {
-            positiveButton("Ok")
-            negativeButton("Cancel")
+            positiveButton(stringResource(id = R.string.common_ok))
+            negativeButton(stringResource(id = R.string.common_cancel))
         }
     ) {
         datepicker { date ->
