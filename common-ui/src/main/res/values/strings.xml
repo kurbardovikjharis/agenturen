@@ -23,4 +23,7 @@
 
     <string name="create_daily">Daily</string>
     <string name="create_weekly">Weekly</string>
+
+    <string name="create_set_time">Set time*</string>
+    <string name="create_set_date">Set date</string>
 </resources>

@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
@@ -55,73 +56,81 @@ private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
         }
     }
 
-    Column(
+    LazyColumn(
         modifier = Modifier.padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+        verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        TextField(
-            modifier = Modifier.fillMaxWidth(),
-            value = state.title,
-            onValueChange = { viewModel.updateTitle(it) },
-            label = {
-                Text(
-                    text = stringResource(id = R.string.create_title_label)
-                )
-            })
-        TextField(
-            modifier = Modifier
-                .fillMaxWidth()
-                .heightIn(min = 100.dp),
-            value = state.description,
-            onValueChange = { viewModel.updateDescription(it) },
-            label = {
-                Text(
-                    text = stringResource(id = R.string.create_description_label)
-                )
-            })
+        item {
+            TextField(
+                modifier = Modifier.fillMaxWidth(),
+                value = state.title,
+                onValueChange = { viewModel.updateTitle(it) },
+                label = {
+                    Text(
+                        text = stringResource(id = R.string.create_title_label)
+                    )
+                })
+        }
+        item {
+            TextField(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .heightIn(min = 100.dp),
+                value = state.description,
+                onValueChange = { viewModel.updateDescription(it) },
+                label = {
+                    Text(
+                        text = stringResource(id = R.string.create_description_label)
+                    )
+                })
+        }
 
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Time(state.time) {
-                viewModel.updateTime(it)
-            }
-            Spacer(modifier = Modifier.width(16.dp))
-            Date(state.date) {
-                viewModel.updateDate(it)
+        item {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Time(state.time) {
+                    viewModel.updateTime(it)
+                }
+                Spacer(modifier = Modifier.width(16.dp))
+                Date(state.date) {
+                    viewModel.updateDate(it)
+                }
             }
         }
 
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
+        item {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                RadioButton(
-                    selected = state.type == Type.Daily,
-                    onClick = { viewModel.updateType(Type.Daily) })
-                Text(text = stringResource(id = R.string.create_daily))
-            }
-            Spacer(modifier = Modifier.width(16.dp))
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                RadioButton(
-                    selected = state.type == Type.Weekly,
-                    onClick = { viewModel.updateType(Type.Weekly) })
-                Text(text = stringResource(id = R.string.create_weekly))
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    RadioButton(
+                        selected = state.type == Type.Daily,
+                        onClick = { viewModel.updateType(Type.Daily) })
+                    Text(text = stringResource(id = R.string.create_daily))
+                }
+                Spacer(modifier = Modifier.width(16.dp))
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    RadioButton(
+                        selected = state.type == Type.Weekly,
+                        onClick = { viewModel.updateType(Type.Weekly) })
+                    Text(text = stringResource(id = R.string.create_weekly))
+                }
             }
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
-
-        SaveButton(enabled = state.enabled, isUpdate = state.isUpdate) {
-            viewModel.save(navigateUp)
+        item {
+            SaveButton(enabled = state.enabled, isUpdate = state.isUpdate) {
+                viewModel.save(navigateUp)
+            }
         }
     }
 }
@@ -129,7 +138,8 @@ private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
 @Composable
 private fun Time(time: LocalTime?, onTimeSelected: (LocalTime) -> Unit) {
     val formatter = LocalAgenturenDateFormatter.current
-    val formatted = if (time != null) formatter.formatShortTime(time) else "set time*"
+    val formatted =
+        if (time != null) formatter.formatShortTime(time) else stringResource(id = R.string.create_set_time)
 
     val dialogState = rememberMaterialDialogState()
     MaterialDialog(
@@ -152,7 +162,8 @@ private fun Time(time: LocalTime?, onTimeSelected: (LocalTime) -> Unit) {
 @Composable
 private fun Date(date: LocalDate?, onDateSelected: (LocalDate) -> Unit) {
     val formatter = LocalAgenturenDateFormatter.current
-    val formatted = if (date != null) formatter.formatMediumDate(date) else "set date"
+    val formatted =
+        if (date != null) formatter.formatMediumDate(date) else stringResource(id = R.string.create_set_date)
 
     val dialogState = rememberMaterialDialogState()
     MaterialDialog(
