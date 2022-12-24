@@ -39,6 +39,25 @@ private fun Login(viewModel: LoginViewModel, onLogin: () -> Unit) {
         }
     }
 
+    LoginContent(
+        state = state,
+        updateEmail = { viewModel.updateEmail(it) },
+        updatePassword = { viewModel.updatePassword(it) },
+        login = {
+            viewModel.login(onLogin)
+        },
+        skipLogin = onLogin
+    )
+}
+
+@Composable
+internal fun LoginContent(
+    state: LoginViewState,
+    updateEmail: (String) -> Unit,
+    updatePassword: (String) -> Unit,
+    login: () -> Unit,
+    skipLogin: () -> Unit
+) {
     Box {
         Column(
             modifier = Modifier
@@ -49,7 +68,7 @@ private fun Login(viewModel: LoginViewModel, onLogin: () -> Unit) {
         ) {
             TextField(
                 value = state.email,
-                onValueChange = { viewModel.updateEmail(it) },
+                onValueChange = { updateEmail(it) },
                 label = {
                     Text(text = stringResource(id = R.string.login_email_label))
                 },
@@ -65,7 +84,7 @@ private fun Login(viewModel: LoginViewModel, onLogin: () -> Unit) {
 
             TextField(
                 value = state.password,
-                onValueChange = { viewModel.updatePassword(it) },
+                onValueChange = { updatePassword(it) },
                 label = {
                     Text(text = stringResource(id = R.string.login_password_label))
                 },
@@ -75,9 +94,7 @@ private fun Login(viewModel: LoginViewModel, onLogin: () -> Unit) {
                     imeAction = ImeAction.Done
                 ),
                 keyboardActions = KeyboardActions(
-                    onDone = {
-                        viewModel.login(onLogin)
-                    },
+                    onDone = { login() },
                 ),
                 trailingIcon = {
                     val painter = if (isPasswordVisible.value)
@@ -96,11 +113,11 @@ private fun Login(viewModel: LoginViewModel, onLogin: () -> Unit) {
                 }
             )
 
-            Button(onClick = { viewModel.login(onLogin) }, enabled = state.isButtonEnabled) {
+            Button(onClick = login, enabled = state.isButtonEnabled) {
                 Text(text = stringResource(id = R.string.login_button))
             }
 
-            Button(onClick = onLogin) {
+            Button(onClick = skipLogin) {
                 Text(text = stringResource(id = R.string.skip_login_button))
             }
         }
