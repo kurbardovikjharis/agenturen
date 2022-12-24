@@ -12,7 +12,8 @@ import org.hamcrest.MatcherAssert
 import org.hamcrest.core.Is.`is`
 import org.junit.Before
 import org.junit.Test
-import java.time.OffsetDateTime
+import java.time.LocalDate
+import java.time.LocalTime
 import javax.inject.Inject
 
 @UninstallModules
@@ -24,7 +25,14 @@ class EpisodesTest : DatabaseTest() {
     @Inject
     lateinit var todoDao: TodoDao
 
-    private val entity = TodoEntity(1L, "title", "desc", OffsetDateTime.now(), Type.Daily)
+    private val entity = TodoEntity(
+        id = 1L,
+        title = "title",
+        description = "desc",
+        time = LocalTime.now(),
+        date = LocalDate.now(),
+        type = Type.Daily
+    )
 
     @Before
     fun setup() {
@@ -35,7 +43,6 @@ class EpisodesTest : DatabaseTest() {
         }
     }
 
-    @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun insert() = runTest {
         database.todoDao().insert(entity)
