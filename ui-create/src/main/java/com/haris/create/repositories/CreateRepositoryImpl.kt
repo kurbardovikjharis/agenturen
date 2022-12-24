@@ -31,7 +31,7 @@ internal class CreateRepositoryImpl @Inject constructor(
                 description = description,
                 time = time,
                 date = date,
-                type = type
+                type = type,
             )
         )
 

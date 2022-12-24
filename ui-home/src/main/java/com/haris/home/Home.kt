@@ -60,8 +60,9 @@ private fun Home(viewModel: HomeViewModel, navigateToCreate: (Long?) -> Unit) {
                             if (item?.title?.isNotEmpty() == true) {
                                 Text(text = item.title)
                             }
-                            if (item?.description?.isNotEmpty() == true) {
-                                Text(text = item.description)
+                            val description = item?.description
+                            if (description?.isNotEmpty() == true) {
+                                Text(text = description)
                             }
                             if (formattedTime.isNotEmpty()) {
                                 Text(text = formattedTime)

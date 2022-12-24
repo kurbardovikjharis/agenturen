@@ -36,7 +36,7 @@ internal class CreateViewModel @Inject constructor(
             viewModelScope.launch {
                 getTodo(id).collectLatest {
                     title.value = it.title
-                    description.value = it.description
+                    description.value = it.description ?: ""
                     time.value = it.time
                     date.value = it.date
                     type.value = it.type

@@ -99,6 +99,12 @@ private fun Login(viewModel: LoginViewModel, onLogin: () -> Unit) {
             Button(onClick = { viewModel.login(onLogin) }, enabled = state.isButtonEnabled) {
                 Text(text = stringResource(id = R.string.login_button))
             }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Button(onClick = onLogin) {
+                Text(text = stringResource(id = R.string.skip_login_button))
+            }
         }
 
         if (state.isLoading) {

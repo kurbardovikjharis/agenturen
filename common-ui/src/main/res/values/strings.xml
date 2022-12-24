@@ -5,6 +5,7 @@
     <string name="login_email_label">Enter email</string>
     <string name="login_password_label">Enter password</string>
     <string name="login_button">Login</string>
+    <string name="skip_login_button">Skip login</string>
 
     <!-- home -->
     <string name="edit_button">Edit</string>
