@@ -21,7 +21,7 @@ class AlarmManager @Inject constructor(
         timeInMillis: Long
     ) {
         alarmManager.setRepeating(
-            AlarmManager.RTC_WAKEUP,
+            AlarmManager.RTC,
             timeInMillis,
             if (isDaily) AlarmManager.INTERVAL_DAY else (AlarmManager.INTERVAL_DAY * 7),
             createAlarmIntent(
