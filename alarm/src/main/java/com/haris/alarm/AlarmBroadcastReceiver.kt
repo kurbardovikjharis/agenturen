@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.haris.ui.R
 
 const val ALARM_EXTRA_ID = "com.haris.alarm.id"
 const val ALARM_EXTRA_TITLE = "com.haris.alarm.title"
@@ -25,7 +26,7 @@ class AlarmBroadcastReceiver : BroadcastReceiver() {
         val date = intent.extras?.getString(ALARM_EXTRA_DATE)
 
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(com.google.android.material.R.drawable.ic_clock_black_24dp)
+            .setSmallIcon(R.drawable.ic_baseline_notifications_24)
             .setContentTitle(title)
             .setContentText("$desc\n$date")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)

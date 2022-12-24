@@ -24,6 +24,7 @@ android {
 }
 
 dependencies {
+    implementation project(':common-ui')
 
     implementation "com.google.dagger:hilt-android:2.44.2"
     kapt "com.google.dagger:hilt-compiler:2.44.2"

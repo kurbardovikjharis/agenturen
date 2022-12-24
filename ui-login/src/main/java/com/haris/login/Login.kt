@@ -44,7 +44,7 @@ private fun Login(viewModel: LoginViewModel, onLogin: () -> Unit) {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             TextField(
@@ -86,7 +86,8 @@ private fun Login(viewModel: LoginViewModel, onLogin: () -> Unit) {
                         painterResource(id = R.drawable.ic_baseline_visibility_off_24)
 
                     val contentDescription =
-                        if (isPasswordVisible.value) "Hide password" else "Show password"
+                        if (isPasswordVisible.value) stringResource(id = R.string.login_accessibility_hide_password)
+                        else stringResource(id = R.string.login_accessibility_show_password)
                     IconButton(
                         onClick = { isPasswordVisible.value = !isPasswordVisible.value }
                     ) {
@@ -95,13 +96,9 @@ private fun Login(viewModel: LoginViewModel, onLogin: () -> Unit) {
                 }
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
-
             Button(onClick = { viewModel.login(onLogin) }, enabled = state.isButtonEnabled) {
                 Text(text = stringResource(id = R.string.login_button))
             }
-
-            Spacer(modifier = Modifier.height(16.dp))
 
             Button(onClick = onLogin) {
                 Text(text = stringResource(id = R.string.skip_login_button))
