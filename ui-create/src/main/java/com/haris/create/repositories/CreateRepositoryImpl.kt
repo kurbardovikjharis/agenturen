@@ -41,6 +41,7 @@ internal class CreateRepositoryImpl @Inject constructor(
         val day = date?.dayOfMonth ?: now.get(Calendar.DAY_OF_MONTH)
 
         val calender = Calendar.getInstance().apply {
+            timeInMillis = System.currentTimeMillis()
             set(Calendar.YEAR, year)
             set(Calendar.MONTH, month)
             set(Calendar.DAY_OF_MONTH, day)
@@ -49,14 +50,13 @@ internal class CreateRepositoryImpl @Inject constructor(
             set(Calendar.SECOND, 0)
         }
 
-        now.set(Calendar.SECOND, 0)
         alarmManager.setAlarm(
             id = finalId.toInt(),
             isDaily = type == Type.Daily,
             title = title,
             description = description,
             time = time.format(DateTimeFormatter.ISO_LOCAL_TIME),
-            timeInMillis = calender.timeInMillis - now.timeInMillis
+            timeInMillis = calender.timeInMillis
         )
     }
 

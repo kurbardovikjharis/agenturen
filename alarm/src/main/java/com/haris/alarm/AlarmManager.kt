@@ -4,7 +4,6 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import javax.inject.Inject
 
 class AlarmManager @Inject constructor(
@@ -21,26 +20,17 @@ class AlarmManager @Inject constructor(
         time: String,
         timeInMillis: Long
     ) {
-        val canScheduleExactAlarms = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            alarmManager.canScheduleExactAlarms()
-        } else {
-            true
-        }
-
-        if (canScheduleExactAlarms) {
-            alarmManager.setRepeating(
-                AlarmManager.RTC,
-                timeInMillis,
-                60000,
-//                if (isDaily) AlarmManager.INTERVAL_DAY else (AlarmManager.INTERVAL_DAY * 7),
-                createAlarmIntent(
-                    id = id,
-                    title = title,
-                    description = description,
-                    time = time
-                )
+        alarmManager.setRepeating(
+            AlarmManager.RTC_WAKEUP,
+            timeInMillis,
+            if (isDaily) AlarmManager.INTERVAL_DAY else (AlarmManager.INTERVAL_DAY * 7),
+            createAlarmIntent(
+                id = id,
+                title = title,
+                description = description,
+                time = time
             )
-        }
+        )
     }
 
     fun cancelAlarm(id: Int) {
