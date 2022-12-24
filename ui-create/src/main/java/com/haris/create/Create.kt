@@ -56,6 +56,29 @@ private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
         }
     }
 
+    CreateContent(
+        state = state,
+        updateTitle = { viewModel.updateTitle(it) },
+        updateDescription = { viewModel.updateDescription(it) },
+        updateTime = { viewModel.updateTime(it) },
+        updateDate = { viewModel.updateDate(it) },
+        updateType = { viewModel.updateType(it) },
+        save = {
+            viewModel.save(navigateUp)
+        }
+    )
+}
+
+@Composable
+internal fun CreateContent(
+    state: CreateViewState,
+    updateTitle: (String) -> Unit,
+    updateDescription: (String) -> Unit,
+    updateTime: (LocalTime) -> Unit,
+    updateDate: (LocalDate) -> Unit,
+    updateType: (Type) -> Unit,
+    save: () -> Unit
+) {
     LazyColumn(
         modifier = Modifier.padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
@@ -64,7 +87,7 @@ private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
             TextField(
                 modifier = Modifier.fillMaxWidth(),
                 value = state.title,
-                onValueChange = { viewModel.updateTitle(it) },
+                onValueChange = { updateTitle(it) },
                 label = {
                     Text(
                         text = stringResource(id = R.string.create_title_label)
@@ -77,7 +100,7 @@ private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
                     .fillMaxWidth()
                     .heightIn(min = 100.dp),
                 value = state.description,
-                onValueChange = { viewModel.updateDescription(it) },
+                onValueChange = { updateDescription(it) },
                 label = {
                     Text(
                         text = stringResource(id = R.string.create_description_label)
@@ -92,11 +115,11 @@ private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Time(state.time) {
-                    viewModel.updateTime(it)
+                    updateTime(it)
                 }
                 Spacer(modifier = Modifier.width(16.dp))
                 Date(state.date) {
-                    viewModel.updateDate(it)
+                    updateDate(it)
                 }
             }
         }
@@ -112,7 +135,7 @@ private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
                 ) {
                     RadioButton(
                         selected = state.type == Type.Daily,
-                        onClick = { viewModel.updateType(Type.Daily) })
+                        onClick = { updateType(Type.Daily) })
                     Text(text = stringResource(id = R.string.create_daily))
                 }
                 Spacer(modifier = Modifier.width(16.dp))
@@ -121,16 +144,14 @@ private fun Create(viewModel: CreateViewModel, navigateUp: () -> Unit) {
                 ) {
                     RadioButton(
                         selected = state.type == Type.Weekly,
-                        onClick = { viewModel.updateType(Type.Weekly) })
+                        onClick = { updateType(Type.Weekly) })
                     Text(text = stringResource(id = R.string.create_weekly))
                 }
             }
         }
 
         item {
-            SaveButton(enabled = state.enabled, isUpdate = state.isUpdate) {
-                viewModel.save(navigateUp)
-            }
+            SaveButton(enabled = state.enabled, isUpdate = state.isUpdate, onSaveClicked = save)
         }
     }
 }

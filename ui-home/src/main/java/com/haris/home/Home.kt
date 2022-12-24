@@ -9,9 +9,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import com.haris.base.date.LocalAgenturenDateFormatter
+import com.haris.data.entities.TodoEntity
 import com.haris.ui.R
 
 @Composable
@@ -22,11 +24,22 @@ fun Home(navigateToCreate: (Long?) -> Unit) {
 @Composable
 private fun Home(viewModel: HomeViewModel, navigateToCreate: (Long?) -> Unit) {
     val list = viewModel.pagedList.collectAsLazyPagingItems()
+    HomeContent(list = list, navigateToCreate = navigateToCreate, delete = { viewModel.delete(it) })
+}
 
+@Composable
+internal fun HomeContent(
+    list: LazyPagingItems<TodoEntity>,
+    navigateToCreate: (Long?) -> Unit,
+    delete: (Long) -> Unit
+) {
     Scaffold(
         floatingActionButton = {
             SmallFloatingActionButton(onClick = { navigateToCreate(null) }) {
-                Text(modifier = Modifier.padding(16.dp), text = "Create")
+                Text(
+                    modifier = Modifier.padding(16.dp),
+                    text = stringResource(id = R.string.create_button)
+                )
             }
         }) {
         LazyColumn(
@@ -44,9 +57,7 @@ private fun Home(viewModel: HomeViewModel, navigateToCreate: (Long?) -> Unit) {
                     if (time != null) formatter.formatShortTime(time) else ""
 
                 Card(
-                    onClick = {
-                        viewModel.delete(item?.id ?: 0L)
-                    }) {
+                    onClick = { delete(item?.id ?: 0L) }) {
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
