@@ -45,7 +45,7 @@ class LoginTest {
     )
 
     @Test
-    fun myTest() {
+    fun homeTest() {
         composeTestRule.setContent {
             CompositionLocalProvider(
                 LocalAgenturenDateFormatter provides agenturenDateFormatter,
@@ -60,6 +60,7 @@ class LoginTest {
 
         composeTestRule.onNodeWithText("title").assertIsDisplayed()
         composeTestRule.onNodeWithText("description").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Edit").assertIsDisplayed()
         composeTestRule.onNodeWithText("Create").assertIsDisplayed()
     }
 }

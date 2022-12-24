@@ -12,7 +12,7 @@ class LoginTest {
     val composeTestRule = createComposeRule()
 
     @Test
-    fun myTest() {
+    fun loginTest() {
         composeTestRule.setContent {
             LoginContent(state = LoginViewState(
                 email = "haris@gmail.com",

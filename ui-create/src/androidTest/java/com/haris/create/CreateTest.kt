@@ -27,7 +27,7 @@ class LoginTest {
     )
 
     @Test
-    fun myTest() {
+    fun createTest() {
         composeTestRule.setContent {
             CompositionLocalProvider(
                 LocalAgenturenDateFormatter provides agenturenDateFormatter,
@@ -52,5 +52,34 @@ class LoginTest {
         composeTestRule.onNodeWithText("Daily").assertIsDisplayed()
         composeTestRule.onNodeWithText("Weekly").assertIsDisplayed()
         composeTestRule.onNodeWithText("Create").assertIsDisplayed()
+    }
+
+    @Test
+    fun updateTest() {
+        composeTestRule.setContent {
+            CompositionLocalProvider(
+                LocalAgenturenDateFormatter provides agenturenDateFormatter,
+            ) {
+                CreateContent(
+                    state = CreateViewState(
+                        title = "title",
+                        description = "description",
+                        isUpdate = true
+                    ),
+                    updateTitle = {},
+                    updateDescription = {},
+                    updateTime = {},
+                    updateDate = {},
+                    updateType = {},
+                    save = {}
+                )
+            }
+        }
+
+        composeTestRule.onNodeWithText("title").assertIsDisplayed()
+        composeTestRule.onNodeWithText("description").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Daily").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Weekly").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Update").assertIsDisplayed()
     }
 }
