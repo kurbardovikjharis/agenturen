@@ -104,7 +104,7 @@ internal class CreateViewModel @Inject constructor(
                     id = id,
                     title = title.value,
                     description = description.value,
-                    time = time.value,
+                    time = time.value ?: LocalTime.now(),
                     date = date.value,
                     type = type.value
                 )

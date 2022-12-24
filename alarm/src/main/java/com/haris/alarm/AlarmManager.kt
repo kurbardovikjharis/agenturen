@@ -5,7 +5,6 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import java.util.*
 import javax.inject.Inject
 
 class AlarmManager @Inject constructor(
@@ -14,7 +13,14 @@ class AlarmManager @Inject constructor(
     private val alarmManager: AlarmManager =
         context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
-    fun setAlarm(id: Int, isDaily: Boolean, title: String, description: String, date: String) {
+    fun setAlarm(
+        id: Int,
+        isDaily: Boolean,
+        title: String,
+        description: String,
+        time: String,
+        timeInMillis: Long
+    ) {
         val canScheduleExactAlarms = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             alarmManager.canScheduleExactAlarms()
         } else {
@@ -24,13 +30,14 @@ class AlarmManager @Inject constructor(
         if (canScheduleExactAlarms) {
             alarmManager.setRepeating(
                 AlarmManager.RTC,
-                Calendar.getInstance().timeInMillis,
-                if (isDaily) AlarmManager.INTERVAL_DAY else (AlarmManager.INTERVAL_DAY * 7),
+                timeInMillis,
+                60000,
+//                if (isDaily) AlarmManager.INTERVAL_DAY else (AlarmManager.INTERVAL_DAY * 7),
                 createAlarmIntent(
                     id = id,
                     title = title,
                     description = description,
-                    date = date
+                    time = time
                 )
             )
         }
@@ -44,13 +51,13 @@ class AlarmManager @Inject constructor(
         id: Int,
         title: String = "",
         description: String = "",
-        date: String = ""
+        time: String = ""
     ): PendingIntent {
         val intent = Intent(context, AlarmBroadcastReceiver::class.java).apply {
             putExtra(ALARM_EXTRA_ID, id)
             putExtra(ALARM_EXTRA_TITLE, title)
             putExtra(ALARM_EXTRA_DESCRIPTION, description)
-            putExtra(ALARM_EXTRA_DATE, date)
+            putExtra(ALARM_EXTRA_TIME, time)
         }
         return PendingIntent.getBroadcast(
             context,

@@ -12,7 +12,13 @@ import dagger.hilt.android.components.ViewModelComponent
 internal object CreateModule {
 
     @Provides
-    fun provideRepository(dao: TodoDao, alarmManager: AlarmManager): CreateRepository {
-        return CreateRepositoryImpl(dao = dao, alarmManager = alarmManager)
+    fun provideRepository(
+        dao: TodoDao,
+        alarmManager: AlarmManager
+    ): CreateRepository {
+        return CreateRepositoryImpl(
+            dao = dao,
+            alarmManager = alarmManager
+        )
     }
 }

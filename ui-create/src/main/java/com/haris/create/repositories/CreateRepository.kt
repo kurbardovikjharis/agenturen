@@ -11,7 +11,7 @@ interface CreateRepository {
         id: Long,
         title: String,
         description: String,
-        time: LocalTime?,
+        time: LocalTime,
         date: LocalDate?,
         type: Type
     )

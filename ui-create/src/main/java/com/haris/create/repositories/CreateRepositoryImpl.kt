@@ -6,8 +6,8 @@ import com.haris.data.entities.TodoEntity
 import com.haris.data.entities.Type
 import java.time.LocalDate
 import java.time.LocalTime
-import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter
+import java.util.*
 import javax.inject.Inject
 
 internal class CreateRepositoryImpl @Inject constructor(
@@ -19,7 +19,7 @@ internal class CreateRepositoryImpl @Inject constructor(
         id: Long,
         title: String,
         description: String,
-        time: LocalTime?,
+        time: LocalTime,
         date: LocalDate?,
         type: Type
     ) {
@@ -35,12 +35,28 @@ internal class CreateRepositoryImpl @Inject constructor(
             )
         )
 
+        val now = Calendar.getInstance()
+        val year = date?.year ?: now.get(Calendar.YEAR)
+        val month = if (date != null) date.monthValue - 1 else now.get(Calendar.MONTH)
+        val day = date?.dayOfMonth ?: now.get(Calendar.DAY_OF_MONTH)
+
+        val calender = Calendar.getInstance().apply {
+            set(Calendar.YEAR, year)
+            set(Calendar.MONTH, month)
+            set(Calendar.DAY_OF_MONTH, day)
+            set(Calendar.HOUR_OF_DAY, time.hour)
+            set(Calendar.MINUTE, time.minute)
+            set(Calendar.SECOND, 0)
+        }
+
+        now.set(Calendar.SECOND, 0)
         alarmManager.setAlarm(
             id = finalId.toInt(),
             isDaily = type == Type.Daily,
             title = title,
             description = description,
-            date = OffsetDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
+            time = time.format(DateTimeFormatter.ISO_LOCAL_TIME),
+            timeInMillis = calender.timeInMillis - now.timeInMillis
         )
     }
 

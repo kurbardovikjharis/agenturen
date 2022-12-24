@@ -26,7 +26,7 @@ internal class AddTodo @Inject constructor(
         val id: Long,
         val title: String,
         val description: String,
-        val time: LocalTime?,
+        val time: LocalTime,
         val date: LocalDate?,
         val type: Type
     )

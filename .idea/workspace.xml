@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="AutoImportSettings">
@@ -22,9 +22,13 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alarm/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/alarm/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common-ui/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common-ui/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/Login.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-login/src/main/java/com/haris/login/Login.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alarm/src/main/java/com/haris/alarm/AlarmBroadcastReceiver.kt" beforeDir="false" afterPath="$PROJECT_DIR$/alarm/src/main/java/com/haris/alarm/AlarmBroadcastReceiver.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alarm/src/main/java/com/haris/alarm/AlarmManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/alarm/src/main/java/com/haris/alarm/AlarmManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/AddTodo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/AddTodo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/CreateViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/CreateViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/repositories/CreateModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/repositories/CreateModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/repositories/CreateRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/repositories/CreateRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/repositories/CreateRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ui-create/src/main/java/com/haris/create/repositories/CreateRepositoryImpl.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
