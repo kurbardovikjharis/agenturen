@@ -12,8 +12,8 @@ fun Main() {
     val navController = rememberAnimatedNavController()
 
     AppNavigation(
-        navController = navController,
         modifier = Modifier.fillMaxHeight(),
+        navController = navController,
         viewModel = hiltViewModel()
     )
 }

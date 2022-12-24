@@ -11,7 +11,7 @@ import javax.inject.Inject
 class AlarmManager @Inject constructor(
     private val context: Context
 ) {
-    private var alarmManager: AlarmManager =
+    private val alarmManager: AlarmManager =
         context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
     fun setAlarm(id: Int, isDaily: Boolean, title: String, description: String, date: String) {
@@ -26,7 +26,7 @@ class AlarmManager @Inject constructor(
                 AlarmManager.RTC,
                 Calendar.getInstance().timeInMillis,
                 if (isDaily) AlarmManager.INTERVAL_DAY else (AlarmManager.INTERVAL_DAY * 7),
-                createExactAlarmIntent(
+                createAlarmIntent(
                     id = id,
                     title = title,
                     description = description,
@@ -37,10 +37,10 @@ class AlarmManager @Inject constructor(
     }
 
     fun cancelAlarm(id: Int) {
-        alarmManager.cancel(createExactAlarmIntent(id))
+        alarmManager.cancel(createAlarmIntent(id))
     }
 
-    private fun createExactAlarmIntent(
+    private fun createAlarmIntent(
         id: Int,
         title: String = "",
         description: String = "",
