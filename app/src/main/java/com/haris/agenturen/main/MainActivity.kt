@@ -3,7 +3,6 @@ package com.haris.agenturen.main
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.CompositionLocalProvider
@@ -26,12 +25,8 @@ class MainActivity : ComponentActivity() {
                 CompositionLocalProvider(
                     LocalAgenturenDateFormatter provides agenturenDateFormatter,
                 ) {
-                    Column {
-                        Surface(
-                            color = MaterialTheme.colorScheme.background
-                        ) {
-                            Main()
-                        }
+                    Surface(color = MaterialTheme.colorScheme.background) {
+                        Main()
                     }
                 }
             }
