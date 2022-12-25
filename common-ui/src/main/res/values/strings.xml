@@ -15,8 +15,6 @@
     <string name="login_accessibility_hide_password">Hide password</string>
     <string name="login_accessibility_show_password">Show password</string>
 
-    <string name="message">All repeating alarms are inexact alarms, therefore in my experience testing can be unreliable. Using AlarmManager.setExact() is 100% reliable on the other hand.</string>
-
     <!-- home -->
     <string name="edit_button">Edit</string>
 

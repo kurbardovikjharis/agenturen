@@ -120,8 +120,6 @@ internal fun LoginContent(
             Button(onClick = skipLogin) {
                 Text(text = stringResource(id = R.string.skip_login_button))
             }
-            
-            Text(text = stringResource(id = R.string.message))
         }
 
         if (state.isLoading) {
