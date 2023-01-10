@@ -8,10 +8,18 @@ Agenturen is an app that attempts to use the latest libraries and tools. As a su
  * Uses many of the [Architecture Components](https://developer.android.com/topic/libraries/architecture/), including: Room, Lifecycle, Navigation.
  * Uses [Hilt](https://dagger.dev/hilt/) for dependency injection
 
-Set Alarm of each and every ToDos created.
-Display Local push notification. (contains Title, Description, DataTime)
-Example:
-If 1st ToDo is created at 4:00 PM for type Daily then the app will notify daily at 4:00 PM.
-If 2nd ToDo is created at 5:00 AM, 28 May 2021 for type Weekly then the app will notify weekly at 5:00 PM starts from the selected date.
+This project has the following features:
+ * Login
+ * Fetch todo's from DB
+ * DB migration
+ * Create todo
+ * Edit todo
+ * Handle mandatory fields
+ * Set alarm
+ * Display push notification (contains Title, Description, DataTime)
+ * Handle permissions
 
-Screens: Login, Home, and Create/Update
+Screens:
+ * Login
+ * Home
+ * Create/Update
